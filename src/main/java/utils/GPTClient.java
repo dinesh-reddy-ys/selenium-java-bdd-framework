@@ -4,10 +4,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileInputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Properties;
 
 /**
  * This class represents a client for communicating with OpenAI's GPT API.
@@ -16,8 +18,9 @@ import java.net.http.HttpResponse;
 public class GPTClient {
 
     // API key for authenticating with OpenAI's GPT API
-    private static final String API_KEY = "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";
-    
+    private static final String API_KEY = "";
+
+
     // Base URL for the GPT API endpoint
     private static final String BASE_URL = "https://api.openai.com/v1/chat/completions";
 
@@ -29,6 +32,14 @@ public class GPTClient {
      * @throws Exception If any error occurs during the request/response cycle.
      */
     public static String ask(String prompt) throws Exception {
+        // Load API key from properties file
+        Properties prop = new Properties();
+        try (FileInputStream fis = new FileInputStream("config.properties")) {
+            prop.load(fis);
+            String apiKey = prop.getProperty("OPENAI_API_KEY");
+            // Use apiKey in your code
+        }
+
         // Create a new HTTP client instance for sending the request
         HttpClient client = HttpClient.newHttpClient();
 
