@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
+import utils.DriverFactory;
 import utils.ExcelUtil;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class SearchItem {
     private static final String EXCEL_PATH = "src/test/resources/testData/TestData.xlsx";
 
     public SearchItem() {
-        this.driver = Hooks.getDriver();
+        this.driver = DriverFactory.getDriver();
         this.homePage = new HomePage(driver);
         // Load test data from Excel
         loadTestData();
@@ -48,6 +49,7 @@ public class SearchItem {
         try {
             // Get the search term from Excel data
             String searchTerm = testData.get(0).get("SearchItem");
+            System.out.println("Search term: " + searchTerm);
             if (searchTerm == null || searchTerm.trim().isEmpty()) {
                 throw new RuntimeException("Search term is empty in Excel data");
             }
@@ -67,5 +69,15 @@ public class SearchItem {
 //        searchResultLink = homePage.getSearchResultLink();
         System.out.println("Search result: " );
         System.out.println("Search result link: " );
+    }
+    @Given("search all items")
+    public void search_all_items() {
+        String filePath = "src/test/resources/testData/TestData.xlsx";
+        List<String> searchItems = ExcelUtil.getSearchItems(filePath, "SearchItems");
+
+        for(String item : searchItems) {
+            System.out.println("Searching for item: " + item);
+            homePage.performSearch(item);
+        }
     }
 }
