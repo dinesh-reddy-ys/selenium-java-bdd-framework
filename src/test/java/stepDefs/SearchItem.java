@@ -51,7 +51,6 @@ public class SearchItem {
         logger.info("Launching the url...");
         logger.warn("Launching the url...");
         logger.error("Launching the url...");
-        logger.debug("Launching the url...");
         homePage.navigateToHomePage("https://www.amazon.in/");
 
     }
