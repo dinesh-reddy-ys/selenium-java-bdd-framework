@@ -73,10 +73,12 @@
         <artifactId>webdrivermanager</artifactId>
         <version>6.1.0</version>
     </dependency>
+    <!--logger -->
 <dependency>
     <groupId>ch.qos.logback</groupId>
     <artifactId>logback-classic</artifactId>
     <version>1.4.11</version>
 </dependency>
+
 </dependencies>
 </project>

@@ -60,10 +60,10 @@ public class HomePage {
 
 
     public void performSearch(String searchData) {
-      wait.until(ExpectedConditions.visibilityOf(searchBox));
-       searchBox.clear();
-       searchBox.sendKeys(searchData);
-       searchButton.click();
+        wait.until(ExpectedConditions.visibilityOf(searchBox));
+        searchBox.clear();
+        searchBox.sendKeys(searchData);
+        searchButton.click();
     }
 
 }

@@ -4,7 +4,9 @@ import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.slf4j.LoggerFactory;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
 import pages.HomePage;
 import utils.DriverFactory;
 import utils.ExcelUtil;
@@ -14,11 +16,16 @@ import java.util.Map;
 
 public class SearchItem {
 
+    private static final Logger logger = LoggerFactory.getLogger(SearchItem.class);
     public List<Map<String, String>> searchItem = ExcelUtil.readExcelData("src/test/resources/testData/TestData.xlsx");
     public WebDriver driver;
     public HomePage homePage;
     private List<Map<String, String>> testData;
     private static final String EXCEL_PATH = "src/test/resources/testData/TestData.xlsx";
+
+    static {
+        System.setProperty("logback.configurationFile", "logback.xml");
+    }
 
     public SearchItem() {
         this.driver = DriverFactory.getDriver();
@@ -40,7 +47,11 @@ public class SearchItem {
 
     @Given("I launch the url")
     public void i_launch_the_url() {
-        System.out.println("Launching the url...");
+        //System.out.println("Launching the url...");
+        logger.info("Launching the url...");
+        logger.warn("Launching the url...");
+        logger.error("Launching the url...");
+        logger.debug("Launching the url...");
         homePage.navigateToHomePage("https://www.amazon.in/");
 
     }

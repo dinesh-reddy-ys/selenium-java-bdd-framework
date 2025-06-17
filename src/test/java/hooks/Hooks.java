@@ -9,6 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import testRunners.ParallelTestRunner;
 import utils.DriverFactory;
 
 /**
@@ -21,7 +22,8 @@ public class Hooks {
      * WebDriver instance to be used across the test execution.
      * Static to maintain single instance across hooks.
      */
-    private static WebDriver driver;
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
 
     /**
      * Setup method that runs before each scenario.
@@ -31,13 +33,19 @@ public class Hooks {
      *
      * Usage: mvn test -Dbrowser=firefox
      */
+
     @Before
     public void setUp() {
         // Retrieve browser preference from system properties with default value "chrome"
-        String browser = System.getProperty("browser", "chrome");
-        
-        // Initialize WebDriver with specified browser
-        DriverFactory.initDriver(browser);
+        String browser = ParallelTestRunner.getBrowserType();
+        if (browser == null || browser.isEmpty()) {
+            throw new IllegalArgumentException("Browser parameter not set! Please check TestNG configuration.");
+        }
+
+        // Initialize driver with specified browser
+        driver.set(DriverFactory.initDriver(browser));
+        System.out.println("Starting test execution with " + browser + " browser");
+
     }
 
     /**
@@ -49,27 +57,29 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario) {
         // Get the current driver instance
-        driver = DriverFactory.getDriver();
-        
-        // Capture screenshot if scenario failed
-        if (scenario.isFailed() && driver != null) {
-            try {
-                // Cast driver to TakesScreenshot
-                TakesScreenshot ts = (TakesScreenshot) driver;
-                
-                // Capture screenshot as bytes
-                byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
-                
-                // Attach screenshot to scenario
-                scenario.attach(screenshot, "image/png", "Screenshot-" + scenario.getName());
-            } catch (Exception e) {
-                System.err.println("Failed to capture screenshot: " + e.getMessage());
-            }
-        }
+        WebDriver currentDriver = driver.get();
+
+
+//        // Capture screenshot if scenario failed
+//        if (scenario.isFailed() && driver != null) {
+//            try {
+//                // Cast driver to TakesScreenshot
+//                TakesScreenshot ts = (TakesScreenshot) driver;
+//
+//                // Capture screenshot as bytes
+//                byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+//
+//                // Attach screenshot to scenario
+//                scenario.attach(screenshot, "image/png", "Screenshot-" + scenario.getName());
+//            } catch (Exception e) {
+//                System.err.println("Failed to capture screenshot: " + e.getMessage());
+//            }
+//        }
 
         // Quit WebDriver if it exists
-        if (driver != null) {
+        if (currentDriver != null) {
             DriverFactory.quitDriver(); // Gracefully close the browser after test execution
+            driver.remove();
         }
     }
 }

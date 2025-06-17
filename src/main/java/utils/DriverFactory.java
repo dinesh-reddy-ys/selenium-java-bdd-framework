@@ -25,6 +25,8 @@ public class DriverFactory {
      * @throws IllegalArgumentException if an unsupported browser type is specified
      */
     public static WebDriver initDriver(String browser) {
+        System.out.println("DriverFactory received browser parameter: " + browser);
+
         // Convert browser parameter to lowercase to ensure case-insensitive comparison
         switch (browser.toLowerCase()) {
             case "chrome":
