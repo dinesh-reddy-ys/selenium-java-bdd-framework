@@ -1,0 +1,7 @@
+2025-06-22 12:54:06.917 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Cheth\eclipse-workspace\cucumber-selenium-testng\testng.xml"
+2025-06-22 12:54:06.941 [main] WARN  org.testng.xml.TestNGContentHandler - It is strongly recommended to add "<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >" at the top of the suite file [C:\Users\Cheth\eclipse-workspace\cucumber-selenium-testng\testng.xml] otherwise TestNG may fail or not work as expected.
+2025-06-22 12:54:07.241 [main] WARN  org.testng.internal.Configuration - Detected a static method [testRunners.DynamicRunner.setupBrowser()]. Static configuration methods can cause unexpected behavior.
+2025-06-22 12:54:07.261 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\Cheth\eclipse-workspace\cucumber-selenium-testng\testng.xml
+
+2025-06-22 12:54:08.191 [TestNG-tests-1] WARN  org.testng.internal.Utils - The test method 'io.cucumber.testng.AbstractTestNGCucumberTests.runScenario' will be skipped since its data provider 'scenarios' returned an empty array or iterator. 

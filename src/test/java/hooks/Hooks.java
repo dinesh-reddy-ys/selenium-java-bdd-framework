@@ -9,6 +9,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Optional;
+import testRunners.DynamicRunner;
 import testRunners.ParallelTestRunner;
 import utils.DriverFactory;
 
@@ -37,7 +39,7 @@ public class Hooks {
     @Before
     public void setUp() {
         // Retrieve browser preference from system properties with default value "chrome"
-        String browser = ParallelTestRunner.getBrowserType();
+        String browser = DynamicRunner.getBrowserType();
         if (browser == null || browser.isEmpty()) {
             throw new IllegalArgumentException("Browser parameter not set! Please check TestNG configuration.");
         }
