@@ -1,7 +1,7 @@
-
-<suite name="ParallelSuite" parallel="tests" thread-count="2">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelSuite" verbose="1" parallel="false">
     <test name="ChromeTests">
-        <parameter name="browser" value="chrome" />
+        
         <classes>
             <class name="testRunners.DynamicRunner"/>
         </classes>

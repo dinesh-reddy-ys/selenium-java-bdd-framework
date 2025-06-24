@@ -10,7 +10,8 @@ import org.testng.annotations.Parameters;
         features = "src/test/resources/features",
         glue = {"stepDefs","hooks"},
         plugin = {"pretty","html:target/cucumber-reports"},
-        tags="s"
+        tags = "not @Skip"  // This tag can be used to run specific scenarios
+     // Adjust the tag as needed for your scenarios
 )
 public class DynamicRunner extends AbstractTestNGCucumberTests {
     private static final ThreadLocal<String> browserType = new ThreadLocal<>();
