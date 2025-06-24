@@ -64,6 +64,7 @@ public class HomePage {
         searchBox.clear();
         searchBox.sendKeys(searchData);
         searchButton.click();
+
     }
 
 }

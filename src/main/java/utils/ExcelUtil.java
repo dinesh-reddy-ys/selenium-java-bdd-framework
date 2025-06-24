@@ -31,8 +31,8 @@ public class ExcelUtil {
         try (FileInputStream fis = new FileInputStream(new File(filePath));
              Workbook workbook = new XSSFWorkbook(fis)) {
             
-            // Get the first sheet from the workbook
-            Sheet sheet = workbook.getSheetAt(0);
+            // Get the second sheet from the workbook
+            Sheet sheet = workbook.getSheetAt(1);
             
             // Get the header row (first row)
             Row headerRow = sheet.getRow(0);
@@ -73,5 +73,27 @@ public class ExcelUtil {
             e.printStackTrace();
         }
         return items;
+    }
+    public static Object[][] getExcelData(String path, String sheetName) {
+        try (FileInputStream fis = new FileInputStream(path);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheet(sheetName);
+            int rows = sheet.getPhysicalNumberOfRows();
+            int cols = sheet.getRow(0).getLastCellNum();
+
+            Object[][] data = new Object[rows - 1][2];
+
+            for (int i = 1; i < rows; i++) {
+                Row row = sheet.getRow(i);
+                data[i - 1][0] = row.getCell(0).getStringCellValue();
+                data[i - 1][1] = row.getCell(1).getStringCellValue();
+            }
+
+            return data;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

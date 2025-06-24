@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-06-24T20:24:38 IST" name="ParallelSuite" finished-at="2025-06-24T20:24:55 IST" duration-ms="16561">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunners.DynamicRunner@52e7a6b2]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2025-06-24T20:24:38 IST" name="ChromeTests" finished-at="2025-06-24T20:24:55 IST" duration-ms="16561">
+      <class name="testRunners.DynamicRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunners.DynamicRunner@52e7a6b2]" started-at="2025-06-24T20:24:38 IST" name="setUpClass" finished-at="2025-06-24T20:24:39 IST" duration-ms="616" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7185e611]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setupBrowser(java.lang.String)[pri:0, instance:testRunners.DynamicRunner@52e7a6b2]" started-at="2025-06-24T20:24:39 IST" name="setupBrowser" finished-at="2025-06-24T20:24:39 IST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBrowser -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunners.DynamicRunner@52e7a6b2]" started-at="2025-06-24T20:24:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-24T20:24:45 IST" duration-ms="6001" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["search for an item"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Search action"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunners.DynamicRunner@52e7a6b2]" started-at="2025-06-24T20:24:45 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-24T20:24:55 IST" duration-ms="9862" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login with valid credentials from excel"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Search action"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunners.DynamicRunner@52e7a6b2]" started-at="2025-06-24T20:24:55 IST" name="tearDownClass" finished-at="2025-06-24T20:24:55 IST" duration-ms="34" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testRunners.DynamicRunner -->
+    </test> <!-- ChromeTests -->
+  </suite> <!-- ParallelSuite -->
+</testng-results>
