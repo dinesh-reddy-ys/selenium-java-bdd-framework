@@ -20,7 +20,7 @@ public class ExtentManager {
 
             // Create an ExtentSparkReporter to generate the HTML report
             ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
-
+            reporter.config().setOfflineMode(true);// Enable offline mode to prevent network calls
             // Initialize the ExtentReports object
             extent = new ExtentReports();
 
