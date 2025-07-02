@@ -9,18 +9,19 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 @CucumberOptions(
-        features = "src/test/resources/features/Search.feature:2:7",
+        features = "src/test/resources/features",
         glue = {"stepDefs","hooks"},
         plugin = {"pretty",
                 "html:target/cucumber-reports/reports.html",
-        "json:target/cucumber-reports/report.json"}
+        "json:target/cucumber-reports/report.json"},
+        tags = "@Search"  // This tag can be used to run specific scenarios
 )
 public class ParallelTestRunner extends AbstractTestNGCucumberTests {
    private static final ThreadLocal<String> browserType = new ThreadLocal<>();
 
     @Parameters({"browser"})
     @BeforeClass
-    public static void setupBrowser(@Optional("chrome") String browser){
+    public  void setupBrowser(@Optional("chrome") String browser){
 
        browserType.set(browser);
         // Log the received browser preference

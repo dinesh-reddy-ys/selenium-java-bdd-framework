@@ -51,6 +51,7 @@ public class SearchItem {
     @Given("I launch the url")
     public void i_launch_the_url() {
         //System.out.println("Launching the url...");
+    	
         logger.info("Launching the url..");
 
         homePage.navigateToHomePage("https://www.amazon.in/");
