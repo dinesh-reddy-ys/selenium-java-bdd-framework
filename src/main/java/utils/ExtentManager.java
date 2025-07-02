@@ -1,0 +1,36 @@
+package utils;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class ExtentManager {
+    // Static instance of ExtentReports to ensure a single instance is used throughout the application
+    private static ExtentReports extent;
+
+    /**
+     * Returns the singleton instance of ExtentReports.
+     * If the instance is null, it initializes the ExtentReports object with the required configuration.
+     *
+     * @return ExtentReports instance
+     */
+    public static ExtentReports getInstance() {
+        if (extent == null) {
+            // Define the path for the HTML report
+            String reportPath = System.getProperty("user.dir") + "/test-output/ExtentReport.html";
+
+            // Create an ExtentSparkReporter to generate the HTML report
+            ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
+
+            // Initialize the ExtentReports object
+            extent = new ExtentReports();
+
+            // Attach the reporter to the ExtentReports instance
+            extent.attachReporter(reporter);
+
+            // Add system information to the report
+            extent.setSystemInfo("OS", System.getProperty("os.name"));
+            extent.setSystemInfo("Tester", "Dinesh Y S");
+        }
+        return extent;
+    }
+}
