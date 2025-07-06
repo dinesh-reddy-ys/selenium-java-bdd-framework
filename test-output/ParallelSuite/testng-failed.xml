@@ -7,8 +7,8 @@
       <class name="testRunners.ParallelTestRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="setupBrowser"/>
           <include name="tearDownClass"/>
+          <include name="setupBrowser"/>
           <include name="runScenario" invocation-numbers="0"/>
         </methods>
       </class> <!-- testRunners.ParallelTestRunner -->

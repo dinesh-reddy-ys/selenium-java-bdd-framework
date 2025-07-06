@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
         plugin = {"pretty",
                 "html:target/cucumber-reports/reports.html",
         "json:target/cucumber-reports/report.json"},
-        tags = "@Search"  // This tag can be used to run specific scenarios
+        tags = "@Smoke"  // This tag can be used to run specific scenarios
 )
 public class ParallelTestRunner extends AbstractTestNGCucumberTests {
    private static final ThreadLocal<String> browserType = new ThreadLocal<>();

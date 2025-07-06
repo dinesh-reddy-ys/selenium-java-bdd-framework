@@ -1,6 +1,7 @@
 package utils;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentManager {
@@ -16,7 +17,7 @@ public class ExtentManager {
     public static ExtentReports getInstance() {
         if (extent == null) {
             // Define the path for the HTML report
-            String reportPath = System.getProperty("user.dir") + "/test-output/ExtentReport.html";
+            String reportPath = System.getProperty("user.dir") + "/test-output/extent-reports/ExtentReport.html";
 
             // Create an ExtentSparkReporter to generate the HTML report
             ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
@@ -32,5 +33,13 @@ public class ExtentManager {
             extent.setSystemInfo("Tester", "Dinesh Y S");
         }
         return extent;
+    }
+    
+    /**
+     * createTest method to create a new test in the ExtentReports instance.
+     */
+    
+    public static ExtentTest createTest(String testName) {
+		return extent.createTest(testName);
     }
 }
