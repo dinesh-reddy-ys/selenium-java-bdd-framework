@@ -16,15 +16,11 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
-Feature: Handle dynamic elements
+Feature: Web Tables
+  I want to use this template for my feature file
 
-Background: Launch the url and navigate to dynamic elements tab
- Given I navigate to "https://demoqa.com/dynamic-properties"
-
-  @Search
-  Scenario: Get text from dynamic element
-    Given I get the text from the dynamic element
-    
-
+  @Table
+  Scenario: Read data from web table 
+    Given I navigate to "https://demoqa.com/webtables"
+#    When I read data from web table
 

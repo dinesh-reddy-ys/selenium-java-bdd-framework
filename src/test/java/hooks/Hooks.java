@@ -3,21 +3,13 @@ package hooks;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Optional;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import utils.ExtentManager;
-
-import testRunners.DynamicRunner;
 import testRunners.ParallelTestRunner;
 import utils.DriverFactory;
+import utils.ExtentManager;
+
+import org.openqa.selenium.WebDriver;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 
 /**
  * Hooks class containing Cucumber setup and teardown methods.
@@ -52,7 +44,7 @@ public class Hooks {
 
         // Initialize driver with specified browser
         driver.set(DriverFactory.initDriver(browser));
-        System.out.println("Starting test execution with " + browser + " browser");
+        //System.out.println("Starting test execution with " + browser + " browser");
         test = extent.createTest(scenario.getName());
     }
 
@@ -66,7 +58,6 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
         // Get the current driver instance
         WebDriver currentDriver = driver.get();
-
 
 //        // Capture screenshot if scenario failed
 //        if (scenario.isFailed() && driver != null) {

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>ChromeTests</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Jul 06 14:23:34 IST 2025</td>
+<td>Started on:</td><td>Wed Jul 09 14:52:32 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>17 seconds (17544 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (599 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,9 +76,99 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testRunners.ParallelTestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunners.ParallelTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Download the file and verify the file file location", "Upload and download feature"</td>
+<td title='testRunners.ParallelTestRunner.setUpClass()'><b>setUpClass</b><br>Test class: testRunners.ParallelTestRunner<br>Parameters: org.testng.TestRunner@4cda58c7</td>
+<td><div><pre>io.cucumber.core.gherkin.FeatureParserException: Failed to parse resource at: file:///C:/Users/Cheth/eclipse-workspace/cucumber-selenium-testng/src/test/resources/features/Login.feature
+(19:3): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Background: open the website and navigate to bookstore application&apos;
+(20:4): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given I navigate to &quot;https://demoqa.com&quot;&apos;
+(21:4): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When I click on books store application card&apos;
+(22:4): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Then I should land on books store page and Login button should be visible&apos;
+(26:3): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Scenario: Login scenario&apos;
+(27:4): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given I navigate to&apos;
+(28:4): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When I enter valid username &quot;james&quot; and password &quot; Password5&quot; and login&apos;
+(29:4): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Then I should be able to login&apos;
+(32:3): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Scenario Outline: Title of your scenario outline&apos;
+(33:5): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given I want to write a step with &lt;name&gt;&apos;
+(34:5): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When I check for the &lt;value&gt; in step&apos;
+	at io.cucumber.core.gherkin.messages.GherkinMessagesFeatureParser.parse(GherkinMessagesFeatureParser.java:56)
+	at io.cucumber.core.feature.FeatureParser.parseResource(FeatureParser.java:46)
+	at java.base/java.util.function.BiFunction.lambda$andThen$0(BiFunction.java:70)
+	at io.cucumber.core.resource.ResourceScanner.lambda$processResource$1(ResourceScanner.java:79)
+	at io.cucumber.core.resource.PathScanner$ResourceFileVisitor.visitFile(PathScanner.java:75)
+	at io.cucumber.core.resource.PathScanner$ResourceFileVisitor.visitFile(PathScanner.java:60)
+	at java.base/java.nio.file.Files.walkFileTree(Files.java:2811)
+	at io.cucumber.core.resource.PathScanner.findResourcesForPath(PathScanner.java:53)
+	at io.cucumber.core.resource.PathScanner.findResourcesForUri(PathScanner.java:31)
+	at io.cucumber.core.resource.ResourceScanner.findResourcesForUri(ResourceScanner.java:61)
+	at io.cucumber.core.resource.ResourceScanner.scanForResourcesUri(ResourceScanner.java:134)
+	at io.cucumber.core.runtime.FeaturePathFeatureSupplier.loadFeatures(FeaturePathFeatureSupplier.java:62)
+	at io.cucumber.core.runtime.FeaturePathFeatureSupplier.get(FeaturePathFeatureSupplier.java:45)
+	at io.cucumber.testng.TestNGCucumberRunner.&lt;init&gt;(TestNGCucumberRunner.java:122)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.setUpClass(AbstractTestNGCucumberTests.java:27)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1034121269", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1034121269'><pre>io.cucumber.core.gherkin.FeatureParserException: Failed to parse resource at: file:///C:/Users/Cheth/eclipse-workspace/cucumber-selenium-testng/src/test/resources/features/Login.feature
+(19:3): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Background: open the website and navigate to bookstore application&apos;
+(20:4): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given I navigate to &quot;https://demoqa.com&quot;&apos;
+(21:4): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When I click on books store application card&apos;
+(22:4): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Then I should land on books store page and Login button should be visible&apos;
+(26:3): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Scenario: Login scenario&apos;
+(27:4): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given I navigate to&apos;
+(28:4): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When I enter valid username &quot;james&quot; and password &quot; Password5&quot; and login&apos;
+(29:4): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Then I should be able to login&apos;
+(32:3): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Scenario Outline: Title of your scenario outline&apos;
+(33:5): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given I want to write a step with &lt;name&gt;&apos;
+(34:5): expected: #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When I check for the &lt;value&gt; in step&apos;
+	at io.cucumber.core.gherkin.messages.GherkinMessagesFeatureParser.parse(GherkinMessagesFeatureParser.java:56)
+	at io.cucumber.core.feature.FeatureParser.parseResource(FeatureParser.java:46)
+	at java.base/java.util.function.BiFunction.lambda$andThen$0(BiFunction.java:70)
+	at io.cucumber.core.resource.ResourceScanner.lambda$processResource$1(ResourceScanner.java:79)
+	at io.cucumber.core.resource.PathScanner$ResourceFileVisitor.visitFile(PathScanner.java:75)
+	at io.cucumber.core.resource.PathScanner$ResourceFileVisitor.visitFile(PathScanner.java:60)
+	at java.base/java.nio.file.Files.walkFileTree(Files.java:2811)
+	at io.cucumber.core.resource.PathScanner.findResourcesForPath(PathScanner.java:53)
+	at io.cucumber.core.resource.PathScanner.findResourcesForUri(PathScanner.java:31)
+	at io.cucumber.core.resource.ResourceScanner.findResourcesForUri(ResourceScanner.java:61)
+	at io.cucumber.core.resource.ResourceScanner.scanForResourcesUri(ResourceScanner.java:134)
+	at io.cucumber.core.runtime.FeaturePathFeatureSupplier.loadFeatures(FeaturePathFeatureSupplier.java:62)
+	at io.cucumber.core.runtime.FeaturePathFeatureSupplier.get(FeaturePathFeatureSupplier.java:45)
+	at io.cucumber.testng.TestNGCucumberRunner.&lt;init&gt;(TestNGCucumberRunner.java:122)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.setUpClass(AbstractTestNGCucumberTests.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+</pre></div></td>
+<td>0</td>
+<td>testRunners.ParallelTestRunner@27508c5d</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testRunners.ParallelTestRunner.setupBrowser()'><b>setupBrowser</b><br>Test class: testRunners.ParallelTestRunner</td>
 <td></td>
-<td>16</td>
+<td>0</td>
 <td>testRunners.ParallelTestRunner@27508c5d</td></tr>
 </table><p>
 </body>

@@ -16,15 +16,18 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
-Feature: Handle dynamic elements
+Feature: Books store login
 
-Background: Launch the url and navigate to dynamic elements tab
- Given I navigate to "https://demoqa.com/dynamic-properties"
+#  Background: open the website and navigate to bookstore application
+#   Given I navigate to "https://demoqa.com"
+#   When I click on books store application card
+#   Then I should land on books store page and Login button should be visible
+   
 
-  @Search
-  Scenario: Get text from dynamic element
-    Given I get the text from the dynamic element
-    
+  @Login
+  Scenario: Login scenario
+   Given I navigate to "https://demoqa.com/login"
+   When I enter valid username "james" and password " Password5" and login
+   Then I should be able to login
 
 
