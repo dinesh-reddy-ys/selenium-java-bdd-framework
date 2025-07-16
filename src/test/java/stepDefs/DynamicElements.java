@@ -4,13 +4,14 @@ import org.openqa.selenium.WebDriver;
 
 import io.cucumber.java.en.Given;
 import pages.DynamicPage;
+import utils.DriverFactory;
 
 public class DynamicElements {
 	public WebDriver driver;
 	public DynamicPage dynamicPage;
 	
 	public DynamicElements() {
-		this.driver = utils.DriverFactory.getDriver();
+		this.driver = DriverFactory.getDriver();
 		 dynamicPage = new DynamicPage(driver);
 	}
 	

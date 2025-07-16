@@ -1,8 +1,13 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -32,7 +37,19 @@ public class DriverFactory {
             case "chrome":
                 // Set up ChromeDriver using WebDriverManager
                 WebDriverManager.chromedriver().setup();
-                driver.set(new ChromeDriver());
+                
+                // Set custom download directory for chrome
+                String downloadPath = System.getProperty("user.dir") + "/downloads";
+                
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("download.default_directory", downloadPath);
+                prefs.put("download.prompt_for_download", false);
+                prefs.put("safebrowsing.enabled", true);
+                
+                ChromeOptions options = new ChromeOptions();
+                options.setExperimentalOption("prefs", prefs);
+                
+                driver.set(new ChromeDriver(options));
                 break;
             case "firefox":
                 // Set up FirefoxDriver using WebDriverManager

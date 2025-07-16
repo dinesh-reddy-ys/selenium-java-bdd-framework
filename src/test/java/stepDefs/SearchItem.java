@@ -4,13 +4,13 @@ import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.slf4j.LoggerFactory;
-import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
 import pages.HomePage;
 import utils.DriverFactory;
 import utils.ExcelUtil;
 
+import org.slf4j.LoggerFactory;
+import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
 import java.util.List;
 import java.util.Map;
 
@@ -48,69 +48,5 @@ public class SearchItem {
         }
     }
 
-    @Given("I launch the url")
-    public void i_launch_the_url() {
-        //System.out.println("Launching the url...");
-    	
-        logger.info("Launching the url..");
-
-        homePage.navigateToHomePage("https://www.amazon.in/");
-
-    }
-    @When("I search for a item")
-    public void i_search_for_a_item() {
-
-
-//        try {
-//            // Get the search term from Excel data
-//            String searchTerm = testData.get(0).get("SearchItem");
-//            System.out.println("Search term: " + searchTerm);
-//            if (searchTerm == null || searchTerm.trim().isEmpty()) {
-//                throw new RuntimeException("Search term is empty in Excel data");
-//            }
-//
-//            System.out.println("Searching for item: " + searchTerm);
-//            homePage.performSearch(searchTerm);
-//        } catch (Exception e) {
-//            throw new RuntimeException("Failed to perform search: " + e.getMessage());
-//        }
-//        homePage.performSearch("mobile");
-        System.out.println("Searching for item: " );
-
-    }
-    @Then("select the item from search list")
-    public void select_the_item_from_search_list() {
-//        searchResult = homePage.getSearchResult();
-//        searchResultLink = homePage.getSearchResultLink();
-        System.out.println("Search result: " );
-        System.out.println("Search result link: " );
-    }
-    @Given("search all items")
-    public void search_all_items() {
-        String filePath = "src/test/resources/testData/TestData.xlsx";
-        List<String> searchItems = ExcelUtil.getSearchItems(filePath, "SearchItems");
-
-        for(String item : searchItems) {
-            System.out.println("Searching for item: " + item);
-            homePage.performSearch(item);
-        }
-    }
-
-    @Given("user logs in with valid username {string} and password {string}")
-    public  void user_logs_in(String placeholderUser,String placeholderPass){
-        homePage.navigateToHomePage("https://www.amazon.in/");
-        List<Map<String,String>> data = ExcelUtil.readExcelData("src/test/resources/testData/TestData.xlsx");
-        for (Map<String, String> row : data) {
-            String username = row.get("username");
-            String password = row.get("password");
-            System.out.println("Login attempt: " + username + " / " + password);
-            // call your actual login logic here
-            homePage.performSearch(username);
-        }
-    }
-
-    @Then("user should see the dashboard")
-    public void seedashboard(){
-        System.out.println("see dashboard");
-    }
+    
 }

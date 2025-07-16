@@ -2,57 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-06T14:23:34 IST" name="ParallelSuite" finished-at="2025-07-06T14:23:51 IST" duration-ms="17544">
+  <suite started-at="2025-07-12T19:06:12 IST" name="Default suite" finished-at="2025-07-12T19:06:32 IST" duration-ms="19828">
     <groups>
-      <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunners.ParallelTestRunner@27508c5d]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-07-06T14:23:34 IST" name="ChromeTests" finished-at="2025-07-06T14:23:51 IST" duration-ms="17544">
-      <class name="testRunners.ParallelTestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunners.ParallelTestRunner@27508c5d]" started-at="2025-07-06T14:23:34 IST" name="setUpClass" finished-at="2025-07-06T14:23:35 IST" duration-ms="728" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@3b7d3a38]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2025-07-12T19:06:12 IST" name="Default test" finished-at="2025-07-12T19:06:32 IST" duration-ms="19828">
+      <class name="tests.WebTable">
+        <test-method signature="testWebTable()[pri:0, instance:tests.WebTable@452e19ca]" started-at="2025-07-12T19:06:13 IST" name="testWebTable" finished-at="2025-07-12T19:06:32 IST" duration-ms="19743" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setupBrowser(java.lang.String)[pri:0, instance:testRunners.ParallelTestRunner@27508c5d]" started-at="2025-07-06T14:23:35 IST" name="setupBrowser" finished-at="2025-07-06T14:23:35 IST" duration-ms="5" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupBrowser -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunners.ParallelTestRunner@27508c5d]" started-at="2025-07-06T14:23:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-06T14:23:51 IST" duration-ms="16687" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Download the file and verify the file file location"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Upload and download feature"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunners.ParallelTestRunner@27508c5d]" started-at="2025-07-06T14:23:51 IST" name="tearDownClass" finished-at="2025-07-06T14:23:51 IST" duration-ms="64" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-      </class> <!-- testRunners.ParallelTestRunner -->
-    </test> <!-- ChromeTests -->
-  </suite> <!-- ParallelSuite -->
+        </test-method> <!-- testWebTable -->
+      </class> <!-- tests.WebTable -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

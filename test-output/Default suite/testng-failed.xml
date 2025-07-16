@@ -3,14 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testRunners.SmokeTestRunner">
+      <class name="tests.WebTable">
         <methods>
-          <include name="setUpClass"/>
-          <include name="setupBrowser"/>
-          <include name="runScenario" invocation-numbers="0"/>
-          <include name="tearDownClass"/>
+          <include name="testWebTable"/>
         </methods>
-      </class> <!-- testRunners.SmokeTestRunner -->
+      </class> <!-- tests.WebTable -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
