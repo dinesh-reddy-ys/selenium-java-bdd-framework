@@ -67,31 +67,23 @@ public class DownloadUtils {
      * Waits for a specific file to be downloaded within a timeout period.
      *
      * @param fileName Name of the file to wait for
-     * @param timeoutInSeconds Maximum time to wait in seconds
+     * @param timeoutSecs Maximum time to wait in seconds
      * @return true if the file is downloaded successfully, false otherwise
      */
-    public boolean waitForFileToDownload(String fileName, int timeoutInSeconds) {
-        Path filePath = Paths.get(downloadDir, fileName);
-        File file = filePath.toFile();
+    public boolean waitForFileToDownload(String fileName, int timeoutSecs) {
+        File file = new File(downloadDir + File.separator + fileName);
         int waited = 0;
-
-        log("Waiting for file to download: " + fileName);
-
-        while (waited < timeoutInSeconds) {
-            if (file.exists() && !file.getName().endsWith(".crdownload")) {
-                log("File downloaded: " + file.getAbsolutePath());
+        while (waited < timeoutSecs) {
+            if (file.exists()) {
                 return true;
             }
-
             try {
-                Thread.sleep(1000); // Wait for 1 second before checking again
+                Thread.sleep(1000);
+                waited++;
             } catch (InterruptedException e) {
-                throw new RuntimeException("Interrupted while waiting for file download", e);
+                e.printStackTrace();
             }
-            waited++;
         }
-
-        log("Timeout reached. File not found or still downloading.");
         return false;
     }
 
