@@ -17,10 +17,9 @@
 ## (Comments)
 #Sample Feature Definition Template
 Feature: Web Tables
-  I want to use this template for my feature file
 
   @Table
   Scenario: Read data from web table 
     Given I navigate to "https://demoqa.com/webtables"
-#    When I read data from web table
+    When I read data from web table
 

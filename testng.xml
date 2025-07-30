@@ -6,4 +6,10 @@
             <class name="testRunners.ParallelTestRunner"/>
         </classes>
     </test>
+    <test name="Rerun failed Tests" >
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="testRunners.FailedTestRunner"/>
+        </classes>
+    </test>
 </suite>

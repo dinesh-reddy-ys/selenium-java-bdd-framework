@@ -11,8 +11,10 @@ import org.testng.annotations.Parameters;
         features = "src/test/resources/features",
         glue = {"stepDefs","hooks"},
         plugin = {"pretty",
-                "html:target/cucumber-reports/reports.html"
+                "html:target/cucumber-reports/reports.html",
+                "rerun:target/failed_scenarios.txt"
         },
+        tags = "@Table",
         // This tag can be used to run specific scenarios
         monochrome = true // Makes the console output more readable
 )
