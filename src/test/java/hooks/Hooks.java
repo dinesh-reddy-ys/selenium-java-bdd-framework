@@ -38,8 +38,10 @@ public class Hooks {
     public void setUp(Scenario scenario) {
         // Retrieve browser preference from system properties with default value "chrome"
         String browser = ParallelTestRunner.getBrowserType();
+                ;
         if (browser == null || browser.isEmpty()) {
-            throw new IllegalArgumentException("Browser parameter not set! Please check TestNG configuration.");
+           browser = System.getProperty("browser");
+          //  throw new IllegalArgumentException("Browser parameter not set! Please check TestNG configuration.");
         }
 
         // Initialize driver with specified browser

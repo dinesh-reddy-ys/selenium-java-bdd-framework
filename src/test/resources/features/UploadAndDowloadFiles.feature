@@ -18,10 +18,10 @@
 #Sample Feature Definition Template
 Feature: Upload and download feature
 
-Background: Navigate to logon screen and login with valid credentials
- Given I navigate to "https://demoqa.com/login"
- When I enter valid username "james" and password " Password5" and login
- Then I should be able to login
+#Background: Navigate to logon screen and login with valid credentials
+# Given I navigate to "https://demoqa.com/login"
+# When I enter valid username "james" and password " Password5" and login
+# Then I should be able to login
 
   @Smoke
   Scenario: Download the file and verify the file file location
