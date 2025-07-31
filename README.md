@@ -77,6 +77,17 @@ mvn clean install
 
  - Docker support (coming soon...)
 
+📸 Reports
+Navigate to test-output/ExtentReports.html or the relevant path after test execution to view pretty reports.
+
+🤝 Contribution
+PRs are welcome! Let’s build something awesome together 🚀
+
+👨‍💻 Author
+Dinesh Y S  – Test Engineer | Java + Selenium + Cucumber Enthusiast
+💼 LinkedIn - https://www.linkedin.com/in/dinesh-y-s 
+📝 Blog -  https://selenium-java-testng.hashnode.dev/
+ Portfolio - https://www.drovix.co.in
 
 
 
