@@ -47,7 +47,7 @@ public class Hooks {
         // Initialize driver with specified browser
         driver.set(DriverFactory.initDriver(browser));
         //System.out.println("Starting test execution with " + browser + " browser");
-        test = extent.createTest(scenario.getName());
+        //test = extent.createTest(scenario.getName());
     }
 
     /**

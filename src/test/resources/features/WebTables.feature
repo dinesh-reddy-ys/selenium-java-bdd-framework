@@ -22,4 +22,13 @@ Feature: Web Tables
   Scenario: Read data from web table 
     Given I navigate to "https://demoqa.com/webtables"
     When I read data from web table
-
+  @Table1  
+  Scenario Outline: Verify value in web table
+    Given I am on the web table page
+    When I load the table data
+    Then I should see "<value>" in the web table
+    
+  Examples:
+     |value|
+     |Alden|
+     |Vega|
