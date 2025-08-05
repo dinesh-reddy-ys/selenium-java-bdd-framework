@@ -44,25 +44,6 @@ public class WebTablesPage implements IWebTablesPages {
         System.out.println(searchText);
     }
 
-//    // Get all row elements
-//    public List<WebElement> getAllRows(){
-//        return driver.findElements(rowLocator);
-//    }
-//
-//    // Get all text data from the table
-//    public List<List<String>> getWebTableData(){
-//        List<List<String>> tableData = new ArrayList<>();
-//
-//        for(WebElement row : getAllRows()){
-//            List<WebElement> columns = row.findElements(columnLocator);
-//            List<String> rowData = new ArrayList<>();            for(WebElement column : columns){
-//                rowData.add(column.getText());
-//            }
-//            tableData.add(rowData);
-//        }
-//        return tableData;
-//    }
-
     // Inside method: you can loop through rows and get columns from each row
     public List<List<String>> getWebTableData() {
         List<List<String>> tableData = new ArrayList<>();
