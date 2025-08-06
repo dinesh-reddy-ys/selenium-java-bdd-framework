@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import utils.DriverFactory;
 import utils.ExtentManager;
 
 public class WebTable {
