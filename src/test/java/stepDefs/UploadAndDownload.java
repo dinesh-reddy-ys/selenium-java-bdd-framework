@@ -42,6 +42,7 @@ public class UploadAndDownload {
 		uploadAndDownloadPage.clickOnElementsDropDown();
 		uploadAndDownloadPage.clickOnUploadAndDownloadTab();
 		test.info("Navigated to the Upload and Download page: ");
+		logger.info("Navigated to the Upload and Download page.");
 	}
 	@When("I click on the download button")
 	public void i_click_on_the_download_button() {
@@ -50,7 +51,7 @@ public class UploadAndDownload {
 		test.info("Cleared the download folder before downloading the file.");
 		uploadAndDownloadPage.clickDownloadButton();
 		test.info("Clicked on the download button.");
-		
+		logger.info("Clicked on the download button to download the file.");
 		
 	}
 	@Then("I verify the file is downloaded successfully")
@@ -60,7 +61,8 @@ public class UploadAndDownload {
 		boolean  isDownloaded = downloadUtils.waitForFileToDownload("sampleFile.jpeg", 15);
 		Assert.assertTrue(isDownloaded, "File was not downloaded successfully!");
 		test.info("File downloaded successfully and verified.");
-		System.out.println("File download verification will be handled in the hooks.");
+		logger.info("File downloaded successfully and verified.");
+		
 	}
 //	@Given("I navigate to {string}")
 //	public void i_navigate_to(String url) {
@@ -95,11 +97,15 @@ public class UploadAndDownload {
 	@Given("I want to click on elements dropdown")
 	public void i_want_to_click_on_elements_dropdown(){
 		tabsAndDropdownsPage.clickOnElementsDropdown();
+		test.info("Clicked on Elements dropdown.");
+		logger.info("Clicked on Elements dropdown.");
 	}
 
 	@And("I want to select upload and download tab")
 	public void i_want_to_select_upload_and_download_tab(){
 		tabsAndDropdownsPage.clickOnUploadAndDownloadTab();
+		test.info("Selected Upload and Download tab.");
+		logger.info("Selected Upload and Download tab.");
 	}
 
 
