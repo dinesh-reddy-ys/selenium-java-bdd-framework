@@ -1,9 +1,5 @@
 package stepDefs;
 
-import hooks.Hooks;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.HomePage;
 import utils.DriverFactory;
 import utils.ExcelUtil;
