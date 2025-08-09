@@ -53,7 +53,6 @@ public class UploadAndDownload {
 		uploadAndDownloadPage.clickDownloadButton();
 		test.info("Clicked on the download button.");
 		logger.info("Clicked on the download button to download the file.");
-
 	}
 
 	@Then("I verify the file is downloaded successfully")
