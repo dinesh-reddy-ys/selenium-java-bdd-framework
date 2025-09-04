@@ -38,7 +38,6 @@ public class UploadAndDownload {
 
 	@Given("I want to navigate to download and upload page")
 	public void i_navigate_to_the_upload_and_download_page() {
-
 		uploadAndDownloadPage.clickOnElementsDropDown();
 		uploadAndDownloadPage.clickOnUploadAndDownloadTab();
 		test.info("Navigated to the Upload and Download page: ");
@@ -53,12 +52,10 @@ public class UploadAndDownload {
 		uploadAndDownloadPage.clickDownloadButton();
 		test.info("Clicked on the download button.");
 		logger.info("Clicked on the download button to download the file.");
-
 	}
 
 	@Then("I verify the file is downloaded successfully")
 	public void verify_the_file_is_downloaded_successfully() {
-
 		boolean isDownloaded = downloadUtils.waitForFileToDownload("sampleFile.jpeg", 15);
 		Assert.assertTrue(isDownloaded, "File was not downloaded successfully!");
 		test.info("File downloaded successfully and verified.");
@@ -68,7 +65,6 @@ public class UploadAndDownload {
 
 	@When("I upload the file with path {string}")
 	public void i_upload_a_file_with_path(String filePath) {
-
 		uploadAndDownloadPage.scrollToDownloadButton();
 		uploadAndDownloadPage.uploadFile(filePath);
 		try {
