@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 /**
  * Factory class for managing WebDriver instances in a thread-safe manner.
@@ -68,8 +69,8 @@ public class DriverFactory {
                 break;
             case "safari":
                 // Set up SafariDriver using WebDriverManager
-                WebDriverManager.safaridriver().setup();
-                driver.set(new EdgeDriver());
+                //WebDriverManager.safaridriver().setup();
+                driver.set(new SafariDriver());
                 break;
             default:
                 // Throw exception for unsupported browser types
