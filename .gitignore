@@ -40,3 +40,10 @@ build/
 # config files
 .env
 config.properties
+
+# Logs
+logs/
+*.log
+
+# Extent Reports
+test-output/
