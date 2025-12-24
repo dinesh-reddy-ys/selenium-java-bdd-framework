@@ -69,7 +69,7 @@ public class DriverFactory {
                 break;
             case "safari":
                 // Set up SafariDriver using WebDriverManager
-                //WebDriverManager.safaridriver().setup();
+                WebDriverManager.safaridriver().setup();
                 driver.set(new SafariDriver());
                 break;
             default:
