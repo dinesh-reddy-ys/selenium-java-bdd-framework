@@ -1,0 +1,8 @@
+<suite name="SafariSuite">
+    <test name="SafariTests">
+        <parameter name="browser" value="safari"/>
+        <classes>
+            <class name="testRunners.ParallelTestRunner"/>
+        </classes>
+    </test>
+</suite>

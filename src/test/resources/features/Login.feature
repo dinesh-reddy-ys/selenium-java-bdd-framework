@@ -27,7 +27,7 @@ Feature: Books store login
   @Login
   Scenario: Login scenario
    Given I navigate to "https://demoqa.com/login"
-   When I enter valid username "james" and password " Password5" and login
+   When I enter valid username "james" and password "Password5" and login
    Then I should be able to login
 
 
