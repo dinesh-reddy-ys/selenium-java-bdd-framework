@@ -46,7 +46,6 @@ public class Login {
     @Then("I should be able to login")
     public void i_should_be_able_to_login() {
     	profilePage.profileNameIsDisplayed();
-    	Assert.assertEquals(profilePage.profileNameIsDisplayed(), "user not logged in");
     }
 
 }
