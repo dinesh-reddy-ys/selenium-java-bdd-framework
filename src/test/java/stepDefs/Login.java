@@ -24,7 +24,15 @@ public class Login {
 	
 	@Given("I navigate to {string}")
 	public void i_navigate_to_the_login_page(String url) {
+
 		driver.get(url);
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+        driver.manage().window().fullscreen();
+
 	}
 	
 	@When("I enter valid username {string} and password {string} and login")
