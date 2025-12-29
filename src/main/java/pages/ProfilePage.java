@@ -15,7 +15,7 @@ public class ProfilePage implements IProfilePage {
 	WebDriver driver;
 	WebDriverWait wait;
 	
-	@FindBy(id = "userName-value")
+	@FindBy(id = "userName-label")
 	private WebElement profileName;
 	@FindBy(id="submit")
 	private WebElement logoutButton;
