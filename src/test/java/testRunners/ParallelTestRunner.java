@@ -20,7 +20,11 @@ import org.testng.annotations.Parameters;
 )
 public class ParallelTestRunner extends AbstractTestNGCucumberTests {
    private static final ThreadLocal<String> browserType = new ThreadLocal<>();
-
+    public ParallelTestRunner() {
+        // browser from XML is already injected by TestNG at this point
+        String browser = System.getProperty("browser");
+        System.out.println("Runner constructor browser = " + browser);
+    }
     @Parameters({"browser"})
     @BeforeClass
     public  void setupBrowser(@Optional("chrome") String browser){
