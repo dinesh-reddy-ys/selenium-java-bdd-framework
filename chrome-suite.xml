@@ -1,9 +1,9 @@
 
-<suite name="ChromeSuite" parallel="methods" thread-count ="2">
+<suite name="ChromeSuite" >
     <test name="ChromeTests">
         <parameter name="browser" value="chrome"/>
         <classes>
-                <class name="testRunners.ParallelTestRunner"/>
+                <class name="testRunners.TestRunner"/>
         </classes>
     </test>
 </suite>
