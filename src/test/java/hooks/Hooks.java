@@ -41,6 +41,9 @@ public class Hooks {
         if (browser == null || browser.isEmpty()) {
            browser = System.getProperty("browser");
         }
+        if(browser == null || browser.isEmpty()){
+            browser = "chrome";
+        }
         driver.set(DriverFactory.initDriver(browser));
         test = extent.createTest(scenario.getName());
     }

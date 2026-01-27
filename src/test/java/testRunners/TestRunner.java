@@ -9,9 +9,8 @@ import io.cucumber.testng.CucumberOptions;
         plugin = {"pretty",
                 "html:target/cucumber-reports/reports.html",
                 "rerun:target/failed_scenarios.txt"
-        },
-        // This tag can be used to run specific scenarios
-        monochrome = true // Makes the console output more readable
+        }
+
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

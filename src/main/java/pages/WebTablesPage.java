@@ -37,7 +37,7 @@ public class WebTablesPage implements IWebTablesPages {
 	}
 
 	public void clickOnAddButton() {
-		System.out.println("hello");
+		addButton.click();
 	}
 
 	public void search(String searchText) {
@@ -61,6 +61,31 @@ public class WebTablesPage implements IWebTablesPages {
 		}
 
 		return tableData;
+	}
+	/**
+	 * Verifies whether an employee with given first name and last name
+	 * is present in the web table.
+	 *
+	 * @param firstName employee first name
+	 * @param lastName  employee last name
+	 * @return true if matching record is found, false otherwise
+	 */
+	public boolean isEmployeePresentInTable(String firstName,String lastName){
+       List<List<String>> tableData = getWebTableData();
+	   //Loop through each row
+		for(List<String> row : tableData){
+           // Saftey check: first name = index 0, last name = index 1
+			if(row.size() >= 2){
+				String actualFirstName = row.get(0).trim();
+				String actualLastName = row.get(1).trim();
+
+				if(actualFirstName.equalsIgnoreCase(firstName) && actualLastName.equalsIgnoreCase(lastName)){
+					return true; // match found
+				}
+			}
+		}
+		return false; // No match
+
 	}
 
 }
