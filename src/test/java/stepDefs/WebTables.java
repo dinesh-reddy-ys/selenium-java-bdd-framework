@@ -47,7 +47,7 @@ public class WebTables {
 	}
 	@When("the user clicks on the add button")
 	public void the_user_clicks_on_the_add_button(){
-     webTablesPage.clickOnAddButton();
+		webTablesPage.clickOnAddButton();
 	}
 	@And("the user enters valid employee details")
 	public void the_user_enters_valid_details(DataTable dataTable){

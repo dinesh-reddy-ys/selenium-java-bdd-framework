@@ -17,6 +17,8 @@ import utils.DownloadUtils;
 import utils.DriverFactory;
 import utils.ExtentManager;
 
+import java.io.File;
+
 public class UploadAndDownload {
 	private static final Logger logger = LoggerFactory.getLogger(UploadAndDownload.class);
 	ExtentTest test;
@@ -33,7 +35,7 @@ public class UploadAndDownload {
 		uploadAndDownloadPage = new UploadAndDownloadPage(driver);
 		tabsAndDropdownsPage = new TabsAndDropdownsPage(driver);
 		test = ExtentManager.createTest("Upload and Download Test");
-		downloadUtils = new DownloadUtils(System.getProperty("user.home") + "/Downloads");
+		downloadUtils = new DownloadUtils(System.getProperty("user.home") + File.separator + "Downloads");
 	}
 
 	@Given("I want to navigate to download and upload page")
@@ -80,9 +82,9 @@ public class UploadAndDownload {
 	@Then("I Verify the uploaded file path is displayed")
 	public void verify_the_uploaded_file_path_is_displayed() {
 		boolean isDisplayed = uploadAndDownloadPage.uploadedFilepath.isDisplayed();
-		Assert.assertTrue(isDisplayed, "uplaoded file path is not displyed!");
-		test.info("Uploaded file path is displed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
-		logger.info("Uploaded file path is displyed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
+		Assert.assertTrue(isDisplayed, "uploaded file path is not displayed!");
+		test.info("Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
+		logger.info("Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
 	}
 
 	@Given("I want to click on elements dropdown")

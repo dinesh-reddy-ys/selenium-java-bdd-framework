@@ -2,6 +2,7 @@ package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +41,7 @@ public class DriverFactory {
                 WebDriverManager.chromedriver().setup();
                 
                 // Set custom download directory for chrome
-                String downloadPath = System.getProperty("user.dir") + "/downloads";
+                String downloadPath = System.getProperty("user.home")+ File.separator + "Downloads";
                 
                 Map<String, Object> prefs = new HashMap<>();
                 prefs.put("download.default_directory", downloadPath);
@@ -49,7 +50,8 @@ public class DriverFactory {
                 
                 ChromeOptions options = new ChromeOptions();
                 options.setExperimentalOption("prefs", prefs);
-                
+                System.out.println("Download path : " + downloadPath);
+                System.out.println("Exists: " + new File(downloadPath).exists());
                 driver.set(new ChromeDriver(options));
                 break;
             case "firefox":
