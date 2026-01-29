@@ -1,24 +1,39 @@
 package stepDefs;
 
+import com.aventstack.extentreports.ExtentTest;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pages.AlertsPage;
+import utils.DriverFactory;
 
 public class Alerts {
-
-	@Given("I launch the demoqa url")
-	public void iWantToSeeAnAlert() {
-		System.out.println("Alert is expected to be shown.");
+    private static  final Logger logger = LoggerFactory.getLogger(Alerts.class);
+	ExtentTest test;
+	public WebDriver driver;
+	public AlertsPage alertsPage;
+	static {
+		System.setProperty("logback.configurationFile","logback.xml");
 	}
-	
+
+   public Alerts(){
+		driver = DriverFactory.getDriver();
+		alertsPage = new AlertsPage(driver);
+
+   }
+
 	@When("Click on the alert button")
 	public void iClickOnTheAlertButton() {
-		System.out.println("Alert button clicked.");
+     alertsPage.clickOnAlertButton();
+
 	}
 	
 	@Then("Accept the alert")
 	public void iShouldSeeAnAlertWithTheMessage() {
-		System.out.println("Alert message verified: ");
+     alertsPage.verifyAndAcceptAlert();
 	}
 
 }
