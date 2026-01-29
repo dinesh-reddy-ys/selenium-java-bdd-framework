@@ -32,7 +32,7 @@ Feature: Web Tables
     | John      | Doe      | 30  | john.deo@test.com| 50000  | QA         |
     And user submits the form
     Then the new employee record should be displayed in the table
-    | firstName | lastName|
-    | John      | Doe     |
+    | firstName | lastName |
+    | John      | Doe      |
 
 

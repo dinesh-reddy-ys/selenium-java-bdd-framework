@@ -20,12 +20,11 @@ Feature: Upload and download feature
 
 Background: Navigate to logon screen and login with valid credentials
  Given I navigate to "https://demoqa.com/upload-download"
-
+  @Upload
+  Scenario: Upload file and verify
+    When I upload the file with path "Resume.pdf"
+    Then I Verify the uploaded file path is displayed
   @Smoke
   Scenario: Download the file and verify the file location
     When I click on the download button
     Then I verify the file is downloaded successfully
-  @Upload
-  Scenario: Upload file and verify
-  When I upload the file with path "C:\\Users\\Cheth\\OneDrive\\Documents\\Dinesh\\Resume\\selenium and restAssured(IBM)\\Dinesh_YS_AutomationEngineer_Resume.docx"
-  Then I Verify the uploaded file path is displayed

@@ -18,6 +18,7 @@ import utils.DriverFactory;
 import utils.ExtentManager;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 public class UploadAndDownload {
 	private static final Logger logger = LoggerFactory.getLogger(UploadAndDownload.class);
@@ -66,8 +67,10 @@ public class UploadAndDownload {
 	}
 
 	@When("I upload the file with path {string}")
-	public void i_upload_a_file_with_path(String filePath) {
-		uploadAndDownloadPage.scrollToDownloadButton();
+	public void i_upload_a_file_with_path(String fileName) {
+		uploadAndDownloadPage.scrollToUploadFile();
+		//String filePath = System.getProperty("user.home") + File.separator + "Documents" + File.separator + fileName;
+		String filePath = Paths.get(System.getProperty("user.home"),"Downloads",fileName).toString();
 		uploadAndDownloadPage.uploadFile(filePath);
 		try {
 			Thread.sleep(2000);
