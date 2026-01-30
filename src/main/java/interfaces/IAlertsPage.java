@@ -6,4 +6,5 @@ public interface IAlertsPage {
     void clickOnTimerAlertButton();
     void clickOnConfirmButton();
     void clickOnPromptButton();
+    void verifyAndAcceptAlert();
 }
