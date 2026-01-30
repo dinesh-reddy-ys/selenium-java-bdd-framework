@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import org.testng.Assert;
+import utils.ScrollUtils;
 
 
 public class AlertsPage implements IAlertsPage {
@@ -23,7 +24,7 @@ public class AlertsPage implements IAlertsPage {
     private WebElement timerAlertButton;
     @FindBy(id = "confirmButton")
     private WebElement confirmButton;
-    @FindBy(id = "promptButton")
+    @FindBy(id = "promtButton")
     private WebElement promptButton;
 
 
@@ -34,8 +35,8 @@ public class AlertsPage implements IAlertsPage {
         PageFactory.initElements(driver,this);
     }
 
-    @Override
     public void clickOnAlertButton() {
+        ScrollUtils.scrollToElement(driver,alertButton);
         wait.until(ExpectedConditions.elementToBeClickable(alertButton));
         alertButton.click();
     }
@@ -46,18 +47,32 @@ public class AlertsPage implements IAlertsPage {
       alert.accept();
     }
 
-    @Override
-    public void clickOnConfirmButton() {
-
-    }
-
-    @Override
     public void clickOnTimerAlertButton() {
-
+        ScrollUtils.scrollToElement(driver,timerAlertButton);
+        wait.until(ExpectedConditions.elementToBeClickable(timerAlertButton));
+        timerAlertButton.click();
     }
 
-    @Override
-    public void clickOnPromptButton() {
+    public void clickOnConfirmButton() {
+        ScrollUtils.scrollToElement(driver,confirmButton);
+        wait.until(ExpectedConditions.elementToBeClickable(confirmButton));
+        confirmButton.click();
+    }
 
+    public void clickOnPromptButton() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        ScrollUtils.scrollToElement(driver,promptButton);
+        wait.until(ExpectedConditions.elementToBeClickable(promptButton));
+        promptButton.click();
+    }
+    public void verifyAndDismissAlert(){
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Assert.assertNotNull(alert,"Alert is not displayed");
+        alert.dismiss();
+    }
+    public void enterPromptText(String text){
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Assert.assertNotNull(alert,"Alert is not displayed");
+        alert.sendKeys(text);
     }
 }

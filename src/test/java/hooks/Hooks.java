@@ -46,6 +46,7 @@ public class Hooks {
         }
         driver.set(DriverFactory.initDriver(browser));
         test = extent.createTest(scenario.getName());
+
     }
 
     /**
