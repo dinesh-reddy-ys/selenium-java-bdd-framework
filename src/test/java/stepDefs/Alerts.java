@@ -26,7 +26,6 @@ public class Alerts {
    public Alerts(){
 		driver = DriverFactory.getDriver();
 		alertsPage = new AlertsPage(driver);
-        test = ExtentManager.createTest("Alerts test");
    }
 
 	@When("I click on the alert button")
