@@ -24,7 +24,6 @@ public class DynamicElements {
 	public DynamicElements() {
 		this.driver = DriverFactory.getDriver();
 		 dynamicPage = new DynamicPage(driver);
-		 test = ExtentManager.createTest("Dynamic Elements Test");
 	}
 	
 	@Given("I navigate to the dynamic page with URL {string}")

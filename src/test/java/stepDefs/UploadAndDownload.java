@@ -35,7 +35,6 @@ public class UploadAndDownload {
 		this.driver = DriverFactory.getDriver();
 		uploadAndDownloadPage = new UploadAndDownloadPage(driver);
 		tabsAndDropdownsPage = new TabsAndDropdownsPage(driver);
-		test = ExtentManager.createTest("Upload and Download Test");
 		downloadUtils = new DownloadUtils(System.getProperty("user.home") + File.separator + "Downloads");
 	}
 
