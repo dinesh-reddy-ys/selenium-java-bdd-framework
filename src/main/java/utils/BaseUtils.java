@@ -1,10 +1,7 @@
 package utils;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,32 +9,72 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BaseUtils {
-    public WebDriver driver;
-    public static void takeScreenshot(String testName) throws IOException {
+
+    /**
+     * Capture screenshot and store inside Extent report folder.
+     * Returns relative path for Extent report usage.
+     */
+    public static String takeScreenshot(String testName)
+            throws IOException {
+
         WebDriver driver = DriverFactory.getDriver();
 
-        // Timestamp for unique filenames
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String timestamp =
+                new SimpleDateFormat("yyyyMMdd_HHmmss")
+                        .format(new Date());
 
-        // Take screenshot
-        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        // Folder inside extent report
+        String reportScreenshotDir =
+                System.getProperty("user.dir")
+                + "/test-output/extent-reports/screenshots/";
 
-        // Define destination path
-        String path = "screenshots/" + testName + "_" + timestamp + ".png";
-        FileUtils.copyFile(srcFile, new File(path));
+        // Create folder if missing
+        new File(reportScreenshotDir).mkdirs();
 
-        System.out.println("Screenshot saved to: " + path);
+        // Clean file name
+        String fileName =
+                testName.replaceAll("\\s+", "_")
+                        + "_" + timestamp + ".png";
+
+        String fullPath =
+                reportScreenshotDir + fileName;
+
+        File srcFile =
+                ((TakesScreenshot) driver)
+                        .getScreenshotAs(OutputType.FILE);
+
+        FileUtils.copyFile(srcFile,
+                new File(fullPath));
+
+        // Return relative path for Extent
+        return "screenshots/" + fileName;
     }
-    public static void captureElementScreenshot(WebElement element, String elementName) throws IOException {
-        // Create screenshot file
-        File srcFile = element.getScreenshotAs(OutputType.FILE);
 
-        // Create destination path with timestamp
-        String fileName = elementName + "_" + System.currentTimeMillis() + ".png";
-        String filePath = "screenshots/elements/" + fileName;
+    /**
+     * Capture element screenshot.
+     */
+    public static void captureElementScreenshot(
+            WebElement element,
+            String elementName) throws IOException {
 
-        // Save the file
-        FileUtils.copyFile(srcFile, new File(filePath));
-        System.out.println("Element screenshot saved to: " + filePath);
+        String dir =
+                System.getProperty("user.dir")
+                + "/test-output/extent-reports/screenshots/elements/";
+
+        new File(dir).mkdirs();
+
+        String fileName =
+                elementName.replaceAll("\\s+", "_")
+                        + "_" + System.currentTimeMillis()
+                        + ".png";
+
+        File srcFile =
+                element.getScreenshotAs(OutputType.FILE);
+
+        FileUtils.copyFile(srcFile,
+                new File(dir + fileName));
+
+        System.out.println(
+                "Element screenshot saved: " + fileName);
     }
 }
