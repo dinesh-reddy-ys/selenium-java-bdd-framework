@@ -4,9 +4,12 @@ import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import testRunners.ParallelTestRunner;
+import utils.BaseUtils;
 import utils.DriverFactory;
 import utils.ExtentManager;
 import utils.OllamaClient;
+
+import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import com.aventstack.extentreports.ExtentReports;
@@ -55,9 +58,10 @@ public class Hooks {
      * Captures screenshot for failed scenarios and closes the browser.
      *
      * @param scenario Current test scenario, injected by Cucumber
+     * @throws IOException 
      */
     @After
-    public void tearDown(Scenario scenario) {
+    public void tearDown(Scenario scenario) throws IOException {
         WebDriver currentDriver = driver.get();
         try {
             if (scenario.isFailed()) {
@@ -65,13 +69,13 @@ public class Hooks {
                 test.fail("Scenario failed: "
                         + scenario.getName());
 
-//                // Screenshot
-//                String screenshotPath =
-//                        ScreenshotUtils.takeScreenshot(
-//                                scenario.getName());
-//
-//                test.addScreenCaptureFromPath(
-//                        screenshotPath);
+                // Screenshot
+                String screenshotPath =
+                        BaseUtils.takeScreenshot(
+                                scenario.getName());
+
+                test.addScreenCaptureFromPath(
+                        screenshotPath);
 
                 // Ollama Analysis
                 String aiAnalysis =
