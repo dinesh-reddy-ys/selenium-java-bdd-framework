@@ -6,6 +6,7 @@ import io.cucumber.java.Scenario;
 import testRunners.ParallelTestRunner;
 import utils.DriverFactory;
 import utils.ExtentManager;
+import utils.OllamaClient;
 
 import org.openqa.selenium.WebDriver;
 import com.aventstack.extentreports.ExtentReports;
@@ -58,15 +59,42 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario) {
         WebDriver currentDriver = driver.get();
-        if(scenario.isFailed()) {
-        	test.fail("Scenario failed: " + scenario.getName());
-        }else {
-        	test.pass("Scenario passed: " + scenario.getName());
-        }
-        extent.flush();
-        if (currentDriver != null) {
-            DriverFactory.quitDriver();
-            driver.remove();
+        try {
+            if (scenario.isFailed()) {
+
+                test.fail("Scenario failed: "
+                        + scenario.getName());
+
+//                // Screenshot
+//                String screenshotPath =
+//                        ScreenshotUtils.takeScreenshot(
+//                                scenario.getName());
+//
+//                test.addScreenCaptureFromPath(
+//                        screenshotPath);
+
+                // Ollama Analysis
+                String aiAnalysis =
+                        OllamaClient.analyzeFailure(
+                                scenario.getName(),
+                                "Scenario execution failed");
+
+                test.info("AI Analysis:\n"
+                        + aiAnalysis);
+
+            } else {
+                test.pass("Scenario passed: "
+                        + scenario.getName());
+            }
+
+        } finally {
+
+            extent.flush();
+
+            if (currentDriver != null) {
+                DriverFactory.quitDriver();
+                driver.remove();
+            }
         }
     }
 }

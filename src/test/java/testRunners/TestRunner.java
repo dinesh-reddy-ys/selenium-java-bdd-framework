@@ -9,7 +9,8 @@ import io.cucumber.testng.CucumberOptions;
         plugin = {"pretty",
                 "html:target/cucumber-reports/reports.html",
                 "rerun:target/failed_scenarios.txt"
-        }
+        },
+        tags = "Upload"
 
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
