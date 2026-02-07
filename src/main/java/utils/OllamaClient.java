@@ -88,4 +88,22 @@ public class OllamaClient {
                     + e.getMessage();
         }
     }
+    
+    /**
+     * Generate test data helper
+     * @param instruction
+     * @return
+     */
+    
+    public static String generateTestData(String instruction) {
+    	try {
+    		String prompt =
+    				"Generate test data only."
+    				+ "Return plain text without explanation.\n"
+    						+ instruction;
+    		return askLLM(prompt).trim();
+    	} catch (Exception e) {
+    		return "DATA_GEN_FAILED";
+    	}
+    }
 }
