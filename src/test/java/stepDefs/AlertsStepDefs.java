@@ -14,8 +14,8 @@ import utils.ExtentManager;
 
 import java.time.Duration;
 
-public class Alerts {
-    private static  final Logger logger = LoggerFactory.getLogger(Alerts.class);
+public class AlertsStepDefs {
+    private static  final Logger logger = LoggerFactory.getLogger(AlertsStepDefs.class);
 	ExtentTest test;
 	public WebDriver driver;
 	public AlertsPage alertsPage;
@@ -23,7 +23,7 @@ public class Alerts {
 		System.setProperty("logback.configurationFile","logback.xml");
 	}
 
-   public Alerts(){
+   public AlertsStepDefs(){
 		driver = DriverFactory.getDriver();
 		alertsPage = new AlertsPage(driver);
    }

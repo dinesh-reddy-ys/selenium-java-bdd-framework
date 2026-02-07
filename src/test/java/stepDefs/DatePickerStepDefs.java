@@ -15,8 +15,8 @@ import pages.DatePickerPage;
 import utils.DriverFactory;
 
 
-public class DatePickerStepDef {
-	private static final Logger logger = LoggerFactory.getLogger(DatePickerStepDef.class);
+public class DatePickerStepDefs {
+	private static final Logger logger = LoggerFactory.getLogger(DatePickerStepDefs.class);
 	static {
 		System.setProperty("logback.configuretionFile", "logback.xml");
 	}
@@ -25,7 +25,7 @@ public class DatePickerStepDef {
 	public DatePickerPage datePickerPage;
 	
 	
-	public DatePickerStepDef() {
+	public DatePickerStepDefs() {
 		this.driver = DriverFactory.getDriver();
 		datePickerPage = new DatePickerPage(driver);
 	}
