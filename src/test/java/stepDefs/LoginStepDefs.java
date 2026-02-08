@@ -10,24 +10,23 @@ import pages.LoginPage;
 import pages.ProfilePage;
 import utils.DriverFactory;
 
-public class Login {
+public class LoginStepDefs {
 	public WebDriver driver;
 	LoginPage loginPage;
 	ProfilePage profilePage;
-	
-	public Login() {
+
+	public LoginStepDefs() {
 		this.driver = DriverFactory.getDriver();
 		loginPage = new LoginPage(driver);
 		profilePage = new ProfilePage(driver);
 	}
-	
-	
+
 	@Given("I navigate to {string}")
 	public void i_navigate_to_the_login_page(String url) {
 		driver.get(url);
-        driver.manage().window().fullscreen();
+		driver.manage().window().fullscreen();
 	}
-	
+
 	@When("I enter valid username {string} and password {string} and login")
 	public void i_enter_valid_username_and_password(String username, String password) {
 		loginPage.clickOnUsernameField();
@@ -36,9 +35,10 @@ public class Login {
 		loginPage.enterPassword(password);
 		loginPage.clickOnLoginButton();
 	}
-    @Then("I should be able to login")
-    public void i_should_be_able_to_login() {
-    	profilePage.profileNameIsDisplayed();
-    }
+
+	@Then("I should be able to login")
+	public void i_should_be_able_to_login() {
+		profilePage.profileNameIsDisplayed();
+	}
 
 }
