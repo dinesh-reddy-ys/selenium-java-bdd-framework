@@ -20,8 +20,8 @@ import utils.ExtentManager;
 import java.io.File;
 import java.nio.file.Paths;
 
-public class UploadAndDownload {
-	private static final Logger logger = LoggerFactory.getLogger(UploadAndDownload.class);
+public class UploadAndDownloadStepDefs {
+	private static final Logger logger = LoggerFactory.getLogger(UploadAndDownloadStepDefs.class);
 	ExtentTest test;
 	WebDriver driver;
 	UploadAndDownloadPage uploadAndDownloadPage;
@@ -31,7 +31,7 @@ public class UploadAndDownload {
 		System.setProperty("logback.configurationFile", "logback.xml");
 	}
 
-	public UploadAndDownload() {
+	public UploadAndDownloadStepDefs() {
 		this.driver = DriverFactory.getDriver();
 		uploadAndDownloadPage = new UploadAndDownloadPage(driver);
 		tabsAndDropdownsPage = new TabsAndDropdownsPage(driver);
@@ -68,8 +68,9 @@ public class UploadAndDownload {
 	@When("I upload the file with path {string}")
 	public void i_upload_a_file_with_path(String fileName) {
 		uploadAndDownloadPage.scrollToUploadFile();
-		//String filePath = System.getProperty("user.home") + File.separator + "Documents" + File.separator + fileName;
-		String filePath = Paths.get(System.getProperty("user.home"),"Downloads",fileName).toString();
+		// String filePath = System.getProperty("user.home") + File.separator +
+		// "Documents" + File.separator + fileName;
+		String filePath = Paths.get(System.getProperty("user.home"), "Downloads", fileName).toString();
 		uploadAndDownloadPage.uploadFile(filePath);
 		try {
 			Thread.sleep(2000);
@@ -86,7 +87,8 @@ public class UploadAndDownload {
 		boolean isDisplayed = uploadAndDownloadPage.uploadedFilepath.isDisplayed();
 		Assert.assertTrue(isDisplayed, "uploaded file path is not displayed!");
 		test.info("Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
-		logger.info("Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
+		logger.info(
+				"Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
 	}
 
 	@Given("I want to click on elements dropdown")
