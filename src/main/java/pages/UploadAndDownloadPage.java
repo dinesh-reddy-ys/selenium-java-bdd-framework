@@ -2,6 +2,7 @@ package pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -101,8 +102,13 @@ public class UploadAndDownloadPage implements IUploadAndDownload {
 	 * @param filePath absolute path to the file to upload
 	 */
 	public void uploadFile(String filePath) {
-		wait.until(ExpectedConditions.elementToBeClickable(uploadFile));
+		wait.until(ExpectedConditions.visibilityOf(uploadFile));	
+		ScrollUtils.scrollToElement(driver, uploadFile);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].style.display='block';", uploadFile);
+
 		uploadFile.sendKeys(filePath);
+		System.out.println("File uploaded with path: " + filePath);
 	}
 
 	/**

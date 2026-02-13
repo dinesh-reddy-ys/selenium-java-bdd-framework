@@ -89,6 +89,13 @@ public class Hooks {
             } else {
                 test.pass("Scenario passed: "
                         + scenario.getName());
+             // Screenshot
+                String screenshotPath =
+                        BaseUtils.takeScreenshot(
+                                scenario.getName());
+
+                test.addScreenCaptureFromPath(
+                        screenshotPath);
             }
 
         } finally {

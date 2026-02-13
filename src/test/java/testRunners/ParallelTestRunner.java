@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
                 "html:target/cucumber-reports/reports.html",
                 "rerun:target/failed_scenarios.txt"
         },
-        tags ="@Form1",
+        //tags ="@Upload",
         // This tag can be used to run specific scenarios
         monochrome = true // Makes the console output more readable
 )
