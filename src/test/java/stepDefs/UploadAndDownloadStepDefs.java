@@ -68,25 +68,25 @@ public class UploadAndDownloadStepDefs {
 	@When("I upload the file with path {string}")
 	public void i_upload_a_file_with_path(String fileName) {
 		uploadAndDownloadPage.scrollToUploadFile();
-		// String filePath = System.getProperty("user.home") + File.separator +
-		// "Documents" + File.separator + fileName;
-		String filePath = Paths.get(System.getProperty("user.home"), "Downloads", fileName).toString();
+//		 String filePath = System.getProperty("user.home") + File.separator +
+//		 "Documents" + File.separator + fileName;
+		String filePath = Paths.get(System.getProperty("user.dir"),
+				"src",
+				"test",
+				"resources",
+				"testData", 
+				fileName
+				).toString();
 		uploadAndDownloadPage.uploadFile(filePath);
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		test.info("Uploaded file with path:" + filePath);
+//		test.info("Uploaded file with path:" + filePath);
 		logger.info("Uploaded file with path: " + filePath);
 	}
 
 	@Then("I Verify the uploaded file path is displayed")
 	public void verify_the_uploaded_file_path_is_displayed() {
-		boolean isDisplayed = uploadAndDownloadPage.uploadedFilepath.isDisplayed();
+		boolean isDisplayed = uploadAndDownloadPage.verifyUploadedFile();
 		Assert.assertTrue(isDisplayed, "uploaded file path is not displayed!");
-		test.info("Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
+//		test.info("Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
 		logger.info(
 				"Uploaded file path is displayed successfully: " + uploadAndDownloadPage.uploadedFilepath.getText());
 	}
