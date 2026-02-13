@@ -38,10 +38,8 @@ public class DriverFactory {
 		// Convert browser parameter to lowercase to ensure case-insensitive comparison
 		switch (browser.toLowerCase()) {
 		case "chrome":
-			// Set up ChromeDriver using WebDriverManager
 			WebDriverManager.chromedriver().setup();
 
-			// Set custom download directory for chrome
 			String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
 
 			Map<String, Object> prefs = new HashMap<>();
@@ -51,10 +49,25 @@ public class DriverFactory {
 
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", prefs);
+
+			// Read headless flag from Maven/Jenkins
+			String headless = System.getProperty("headless", "false");
+
+			if (headless.equalsIgnoreCase("true")) {
+				System.out.println("Running Chrome in headless mode");
+				options.addArguments("--headless=new");
+				options.addArguments("--no-sandbox");
+				options.addArguments("--disable-dev-shm-usage");
+				options.addArguments("--disable-gpu");
+				options.addArguments("--window-size=1920,1080");
+			}
+
 			System.out.println("Download path : " + downloadPath);
 			System.out.println("Exists: " + new File(downloadPath).exists());
+
 			driver.set(new ChromeDriver(options));
 			break;
+
 		case "firefox":
 			// Set up FirefoxDriver using WebDriverManager
 			WebDriverManager.firefoxdriver().setup();
