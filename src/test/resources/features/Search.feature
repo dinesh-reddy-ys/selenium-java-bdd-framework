@@ -12,4 +12,8 @@ Feature: Search action
 #  Examples:
 #    |username | password|
 #    |dummy    | dummy   |
-
+@Flipkart
+Scenario: Search for an iphone
+ Given I navigate to "https://www.amazon.in/"
+ When I search for "iphone"
+ Then I verify that all search results contains "iphone"

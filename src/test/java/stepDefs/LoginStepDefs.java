@@ -24,6 +24,8 @@ public class LoginStepDefs {
 	@Given("I navigate to {string}")
 	public void i_navigate_to_the_login_page(String url) {
 		driver.get(url);
+		driver.manage().window().maximize();
+		
 		driver.manage().window().fullscreen();
 	}
 
