@@ -17,13 +17,12 @@ Feature: Search action
     Given I navigate to "https://www.amazon.in/"
     When I search for "iphone"
     Then I verify that all search results contains "iphone"
-
+  @Flipkart
   Scenario: select items with prices less than 50000
     Given I navigate to "https://www.amazon.in/"
     When I search for "iphone"
     Then I select items with prices less than 50000
 
-  @Flipkart
   Scenario: click on next page button and get items with prices less than 50000
     Given I navigate to "https://www.amazon.in/"
     When I search for "iphone"
