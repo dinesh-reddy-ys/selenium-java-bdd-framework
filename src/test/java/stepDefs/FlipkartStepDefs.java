@@ -41,5 +41,15 @@ public class FlipkartStepDefs {
 		flipkartPage.clickNextPage();
 	}
 	
+	@And("add first item to the cart")
+	public void add_first_item_to_cart() {
+		flipkartPage.clickAddToCartForFirstProduct();
+	}
+	
+	@Then("delete the item from the cart in the same page")
+	public void delete_item_from_cart() {
+		flipkartPage.clickDeleteButton();
+	}
+	
 
 }

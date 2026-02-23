@@ -31,6 +31,12 @@ public class FlipkartPage implements IFlipkartPage {
 	
 	@FindBy(xpath = "//a[contains(@class, 's-pagination-next')]")
 	private WebElement nextPageButton;
+	
+	@FindBy(xpath = "(//button[@name='submit.addToCart'])[1]")
+	private WebElement addToCartButton1;
+	
+	@FindBy(xpath = "(//span[contains(@class,'-icon-small-trash')])[2]")
+	private WebElement deleteButton;
 
 	public FlipkartPage(WebDriver driver) {
 		this.driver = driver;
@@ -110,6 +116,22 @@ public class FlipkartPage implements IFlipkartPage {
 		}
 		
 		wait.until(ExpectedConditions.visibilityOfAllElements(priceElements));
+	}
+	
+	/**
+	 * Clicks on add to cart button for the first product in the list
+	 */
+	public void clickAddToCartForFirstProduct() {
+		wait.until(ExpectedConditions.elementToBeClickable(addToCartButton1));
+		addToCartButton1.click();
+	}
+	
+	/**
+	 * Clicks on delete button to remove item from cart
+	 */
+	public void clickDeleteButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
+		deleteButton.click();
 	}
 
 }
