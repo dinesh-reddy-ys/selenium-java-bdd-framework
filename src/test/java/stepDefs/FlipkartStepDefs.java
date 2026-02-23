@@ -51,5 +51,20 @@ public class FlipkartStepDefs {
 		flipkartPage.clickDeleteButton();
 	}
 	
+	@And("I click on the item with name {string}")
+	public void i_click_on_item_with_name(String productName) {
+		flipkartPage.clickOnProduct(productName);
+	}
+	
+	@And("I switch to the new window")
+	public void i_switch_to_new_window() {
+		flipkartPage.switchToNewWindow();
+	}
+	
+	@Then("I verify that the item name is {string}")
+	public void i_verify_item_name(String expectedName) {
+     Assert.assertTrue(flipkartPage.isProductTitleContaining(expectedName), "Product title does not match expected: " + expectedName);
+	}
+	
 
 }

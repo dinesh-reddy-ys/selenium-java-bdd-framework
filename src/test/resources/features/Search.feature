@@ -30,8 +30,15 @@ Feature: Search action
     And I click on the next page button
     Then I select items with prices less than 50000
 
-  @amazon
+  @amazon1
   Scenario: click on add to cart and delete the item from cart
     When I search for "iphone"
     And add first item to the cart
     Then delete the item from the cart in the same page
+
+  @amazon
+  Scenario: click on item using name of the product
+    When I search for "iphone"
+    And I click on the item with name "iPhone 17 Pro 256 GB"
+    And I switch to the new window
+    Then I verify that the item name is "iPhone 17 Pro 256 GB"

@@ -3,6 +3,7 @@ package pages;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,6 +38,9 @@ public class FlipkartPage implements IFlipkartPage {
 	
 	@FindBy(xpath = "(//span[contains(@class,'-icon-small-trash')])[2]")
 	private WebElement deleteButton;
+	
+	@FindBy(id = "productTitle")
+	private WebElement productTitle;
 
 	public FlipkartPage(WebDriver driver) {
 		this.driver = driver;
@@ -52,7 +56,7 @@ public class FlipkartPage implements IFlipkartPage {
 		searchBox.sendKeys(Keys.ENTER);
 		driver.manage().window().fullscreen();
 		;
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 
 	@Override
@@ -132,6 +136,46 @@ public class FlipkartPage implements IFlipkartPage {
 	public void clickDeleteButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
 		deleteButton.click();
+	}
+	
+	/**
+	 * private dynamic locator to select product based on name
+	 */
+	
+	private By getProductByName(String productName) {
+		return By.xpath("//div[@data-cy='title-recipe' and contains(.,'"+ productName +"')]");
+	}
+	
+	/**
+	 * Selects product based on name using dynamic locator
+	 */
+	public void clickOnProduct(String productName) {
+		wait.until(ExpectedConditions.elementToBeClickable(getProductByName(productName)));
+		driver.findElement(getProductByName(productName)).click();
+	}
+	
+	/**
+	 * Verify that product title in the product details page contains the expected product name
+	 */
+	public boolean isProductTitleContaining(String productName) {
+		wait.until(ExpectedConditions.visibilityOf(productTitle));
+		String titleText = productTitle.getText().toLowerCase();
+		return titleText.contains(productName.toLowerCase());
+	}
+	
+	/**
+	 * Switch to new window opened after clicking on the item
+	 */
+	public void switchToNewWindow() {
+		String mainWindow = driver.getWindowHandle();
+		List<String> allWindows = driver.getWindowHandles().stream().toList();
+		for(String window : allWindows) {
+			if(!window.equals(mainWindow)) {
+				driver.switchTo().window(window);
+				break;
+			}
+			
+		}
 	}
 
 }
