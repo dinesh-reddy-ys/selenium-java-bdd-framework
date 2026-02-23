@@ -13,18 +13,25 @@ Feature: Search action
 # |username | password|
 # |dummy    | dummy   |
 
-  Scenario: Search for an iphone
+  Background: User is on amazon home page
     Given I navigate to "https://www.amazon.in/"
+
+  Scenario: Search for an iphone
     When I search for "iphone"
     Then I verify that all search results contains "iphone"
+
   @Flipkart
   Scenario: select items with prices less than 50000
-    Given I navigate to "https://www.amazon.in/"
     When I search for "iphone"
     Then I select items with prices less than 50000
 
   Scenario: click on next page button and get items with prices less than 50000
-    Given I navigate to "https://www.amazon.in/"
     When I search for "iphone"
     And I click on the next page button
     Then I select items with prices less than 50000
+
+  @amazon
+  Scenario: click on add to cart and delete the item from cart
+    When I search for "iphone"
+    And add first item to the cart
+    Then delete the item from the cart in the same page
