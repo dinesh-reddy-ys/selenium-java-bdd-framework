@@ -2,6 +2,7 @@ package pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -75,8 +76,10 @@ public class DragAndDropPage implements IDragAndDropPage {
      */
     public void dragAndDrop() {
         // Wait until both source and target are visible before interacting
-        wait.until(ExpectedConditions.visibilityOf(draggable));
+        wait.until(ExpectedConditions.elementToBeClickable(draggable));
         wait.until(ExpectedConditions.visibilityOf(droppable));
+        ((JavascriptExecutor) driver)
+        .executeScript("arguments[0].scrollIntoView({block:'center'});", draggable);
         // Perform a more robust drag-and-drop sequence instead of the single dragAndDrop call
         BaseUtils.dragAndDrop(draggable, droppable, driver);
     }
