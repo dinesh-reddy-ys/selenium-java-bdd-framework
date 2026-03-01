@@ -67,9 +67,9 @@ public class BaseUtils {
 		actions
         .moveToElement(source)
         .clickAndHold()
-        .pause(Duration.ofMillis(500)) // small pause to mimic human interaction
+        .pause(Duration.ofSeconds(5)) // small pause to mimic human interaction
         .moveToElement(target)
-        .pause(Duration.ofMillis(500))
+        .pause(Duration.ofSeconds(5))
         .release()
         .build()
         .perform();
