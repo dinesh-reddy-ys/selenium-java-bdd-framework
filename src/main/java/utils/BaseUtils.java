@@ -2,10 +2,12 @@ package utils;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 public class BaseUtils {
@@ -55,5 +57,22 @@ public class BaseUtils {
 		FileUtils.copyFile(srcFile, new File(dir + fileName));
 
 		System.out.println("Element screenshot saved: " + fileName);
+	}
+	
+	/**
+	 * Drag and drop an element from source to target.
+	 */
+	public static void dragAndDrop(WebElement source, WebElement target,WebDriver driver) {
+		Actions actions = new Actions(driver);
+		actions
+        .moveToElement(source)
+        .clickAndHold()
+        .pause(Duration.ofMillis(500)) // small pause to mimic human interaction
+        .moveToElement(target)
+        .pause(Duration.ofMillis(500))
+        .release()
+        .build()
+        .perform();
+		
 	}
 }
