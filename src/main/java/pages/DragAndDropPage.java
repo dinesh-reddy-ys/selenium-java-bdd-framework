@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import interfaces.IDragAndDropPage;
+import utils.BaseUtils;
 
 /**
  * Page Object representing a page that contains a draggable element and a droppable target.
@@ -73,20 +74,11 @@ public class DragAndDropPage implements IDragAndDropPage {
      * this method uses a low-level sequence of actions with small pauses.
      */
     public void dragAndDrop() {
-        Actions actions = new Actions(driver);
         // Wait until both source and target are visible before interacting
         wait.until(ExpectedConditions.visibilityOf(draggable));
         wait.until(ExpectedConditions.visibilityOf(droppable));
         // Perform a more robust drag-and-drop sequence instead of the single dragAndDrop call
-        actions
-            .moveToElement(draggable)
-            .clickAndHold()
-            .pause(Duration.ofMillis(500)) // small pause to mimic human interaction
-            .moveToElement(droppable)
-            .pause(Duration.ofMillis(500))
-            .release()
-            .build()
-            .perform();
+        BaseUtils.dragAndDrop(draggable, droppable, driver);
     }
     
     /**
