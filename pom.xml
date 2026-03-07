@@ -90,36 +90,41 @@
 			<version>5.1.2</version>
 		</dependency>
 		<!-- HTTP client -->
-<dependency>
-    <groupId>com.squareup.okhttp3</groupId>
-    <artifactId>okhttp</artifactId>
-    <version>4.12.0</version>
-</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.12.0</version>
+		</dependency>
 
-<!-- JSON mapper -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.17.0</version>
-</dependency>
+		<!-- JSON mapper -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.3.0</version>
+		</dependency>
 	</dependencies>
-	
+
 	<build>
-        <plugins>
+		<plugins>
 
-            <!-- Maven Surefire Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
-                <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
-            </plugin>
+			<!-- Maven Surefire Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.5</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
 
-        </plugins>
-    </build>
-	
+		</plugins>
+	</build>
+
 </project>
