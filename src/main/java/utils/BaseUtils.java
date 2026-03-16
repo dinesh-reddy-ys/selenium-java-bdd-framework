@@ -68,7 +68,7 @@ public class BaseUtils {
         .moveToElement(source)
         .clickAndHold()
         .pause(Duration.ofSeconds(5)) // small pause to mimic human interaction
-        .moveToElement(target,10,10) // move to target with offset to ensure it's within the element
+        .moveToElement(target)
         .pause(Duration.ofSeconds(5))
         .release()
         .build()

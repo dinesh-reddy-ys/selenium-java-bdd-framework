@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.DragAndDropPage;
+import utils.DBUtils;
 import utils.DriverFactory;
 
 public class DragAndDropStepDefs {
@@ -27,6 +28,7 @@ public class DragAndDropStepDefs {
 	@When("I perform drag and drop")
 	public void i_perform_drag_and_drop() {
 		dragAndDropPage.dragAndDrop();
+		DBUtils.getCustomerData(); // Call the method to retrieve customer data from the database
 		logger.info("Dragand drop action is performed");
 	}
 	
