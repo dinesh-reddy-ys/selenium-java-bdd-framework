@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SelectMenuPage {
@@ -18,6 +19,9 @@ public class SelectMenuPage {
 
 	@FindBy(xpath = "//div[contains(text(),'Group 1, option 1')]")
 	private WebElement selectValueOption1;
+	
+	@FindBy(id = "cars")
+	private WebElement multiSelectDropdown;
 
 	public SelectMenuPage(WebDriver driver) {
 		this.driver = driver;
@@ -28,6 +32,13 @@ public class SelectMenuPage {
 	public void selectValueOption1() {
 		wait.until(ExpectedConditions.elementToBeClickable(selectValueDropdown)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(selectValueOption1)).click();
+	}
+	
+	public void selectMultipleOptions() {
+		wait.until(ExpectedConditions.elementToBeClickable(multiSelectDropdown));
+		Select select = new Select(multiSelectDropdown);	
+		select.selectByVisibleText("Volvo");
+		select.selectByVisibleText("Saab");
 	}
 
 }

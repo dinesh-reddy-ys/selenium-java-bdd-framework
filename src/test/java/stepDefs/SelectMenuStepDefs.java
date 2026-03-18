@@ -15,4 +15,9 @@ public SelectMenuPage selectMenuPage;
  public void i_select_a_option_from_dropdown() {
 	 selectMenuPage.selectValueOption1();
  }
+ 
+ @When("I select multiple values from dropdown")
+ public void i_select_multiple_values_from_dropdown() {
+	 selectMenuPage.selectMultipleOptions();
+ }
 }
