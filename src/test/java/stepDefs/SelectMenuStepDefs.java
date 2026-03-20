@@ -1,5 +1,7 @@
 package stepDefs;
 
+import org.testng.Assert;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.SelectMenuPage;
@@ -35,5 +37,16 @@ public SelectMenuPage selectMenuPage;
  @Then("dropdown options should be visible")
  public void dropdown_options_should_be_visible() {
 	 selectMenuPage.verifyMultiSelectDropdownOptions();
+ }
+ 
+ @When("I select {string} from multiselect dropdown")
+ public void i_select_from_multiselect_dropdown(String option) {
+	 selectMenuPage.selectMultiSelectDropdownOption();
+	 selectMenuPage.selectMultiSelectOptionByColor(option);
+ }
+ 
+ @Then("{string} should be selected in multiselect dropdown")
+ public void should_be_selected_in_multiselect_dropdown(String option) {
+	 Assert.assertTrue(selectMenuPage.verifyMultiSeelectedOptionSelected(option), option + " should be selected in the multi-select dropdown");	 
  }
 }
