@@ -31,4 +31,9 @@ Feature: Select menu
   Scenario: Select multiselect dropdown and verify it
     Given I navigate to "https://demoqa.com/select-menu"
     When I click on multiselect dropdown
-    #Then dropdown options should be visible
+    Then dropdown options should be visible
+  @Selected
+  Scenario: Select a value from multiselect dropdown and verify it
+    Given I navigate to "https://demoqa.com/select-menu"
+    When I select "Blue" from multiselect dropdown
+    Then "Blue" should be selected in multiselect dropdown
