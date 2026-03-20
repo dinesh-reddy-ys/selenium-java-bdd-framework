@@ -10,19 +10,25 @@ Feature: Select menu
     When I select multiple values from dropdown
 
   @Old
-  Scenario Outline: select a old style dropdown and select a value
+  Scenario Outline: Select a old style dropdown and select a value
     Given I navigate to "https://demoqa.com/select-menu"
     When I select "<option>" from old style dropdown
 
     Examples:
-      | option |
-      | Red    |
-      | Green  |
-      | Blue   |
-      | Yellow |
-      |  Black |
-      | White  |
-      | Voilet |
-      | Indigo |
-      | Magenta|
-      | Aqua   |
+      | option  |
+      | Red     |
+      | Green   |
+      | Blue    |
+      | Yellow  |
+      | Black   |
+      | White   |
+      | Voilet  |
+      | Indigo  |
+      | Magenta |
+      | Aqua    |
+
+  @MultiSelectDropdown
+  Scenario: Select multiselect dropdown and verify it
+    Given I navigate to "https://demoqa.com/select-menu"
+    When I click on multiselect dropdown
+    #Then dropdown options should be visible
