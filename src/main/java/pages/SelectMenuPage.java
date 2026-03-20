@@ -22,6 +22,9 @@ public class SelectMenuPage {
 	
 	@FindBy(id = "cars")
 	private WebElement multiSelectDropdown;
+	
+	@FindBy(id = "oldSelectMenu")
+	private WebElement oldStyleSelectMenu;
 
 	public SelectMenuPage(WebDriver driver) {
 		this.driver = driver;
@@ -39,6 +42,12 @@ public class SelectMenuPage {
 		Select select = new Select(multiSelectDropdown);	
 		select.selectByVisibleText("Volvo");
 		select.selectByVisibleText("Saab");
+	}
+	
+	public void selectOldStyleOption(String color) {
+		wait.until(ExpectedConditions.elementToBeClickable(oldStyleSelectMenu));
+		Select select = new Select(oldStyleSelectMenu);
+		select.selectByVisibleText(color);
 	}
 
 }

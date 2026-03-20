@@ -20,4 +20,9 @@ public SelectMenuPage selectMenuPage;
  public void i_select_multiple_values_from_dropdown() {
 	 selectMenuPage.selectMultipleOptions();
  }
+ 
+ @When("I select {string} from old style dropdown")
+ public void i_select_from_old_style_dropdown(String color) {
+	 selectMenuPage.selectOldStyleOption(color);
+ }
 }
