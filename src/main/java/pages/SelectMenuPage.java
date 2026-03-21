@@ -60,7 +60,7 @@ public class SelectMenuPage {
 	 */
 	public SelectMenuPage(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
 
@@ -126,21 +126,77 @@ public class SelectMenuPage {
 		Assert.assertTrue(options.size() > 0, "No options found in multi-select dropdown");
 	}
 
+	/**
+	 * Builds a locator for multi-select options based on the visible text (color).
+	 * Used to interact with specific options in the react-style multi-select.
+	 *
+	 * @param color the visible text of the option (e.g. "Red")
+	 * @return By locator targeting the specific multi-select option element
+	 */
 	public By getMultiSelectOptionsLocator(String color) {
 		return By.xpath("//div[contains(@id,'react-select-4-option-') and contains(text(),'" + color + "')]");
 	}
 
+	/**
+	 * Selects a multi-select option by its visible text (color). Waits for the
+	 * option to be clickable before selecting.
+	 *
+	 * @param color the visible text of the option to select (e.g. "Red")
+	 */
 	public void selectMultiSelectOptionByColor(String color) {
 		wait.until(ExpectedConditions.elementToBeClickable(getMultiSelectOptionsLocator(color))).click();
 	}
-	
-	public boolean verifyMultiSeelectedOptionSelected(String color) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(getSelectedMultiSelectOptionalLocator(color))).isDisplayed();
-		
+
+	/**
+	 * Verifies if a multi-select option is selected by checking its visibility in
+	 * the selected options area. Uses the option's color for identification.
+	 *
+	 * @param color the visible text of the option to verify (e.g. "Red")
+	 * @return true if the option is selected (visible), false otherwise
+	 */
+	public boolean verifyMultiSelectedOptionSelected(String color) {
+		try {
+			return wait
+					.until(ExpectedConditions.visibilityOfElementLocated(getSelectedMultiSelectOptionalLocator(color)))
+					.isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
 	}
-	
+
+	/**
+	 * Builds a locator for selected multi-select options based on the visible text
+	 * (color). Used to verify if a specific option is selected.
+	 *
+	 * @param color the visible text of the option (e.g. "Red")
+	 * @return By locator targeting the specific selected multi-select option
+	 *         element
+	 */
 	public By getSelectedMultiSelectOptionalLocator(String color) {
 		return By.xpath("//div[contains(@class,'css-9jq23d') and contains(text(),'" + color + "')]");
+	}
+
+	/**
+	 * Builds a locator for the remove button of a multi-select option based on the
+	 * visible text (color). Used to interact with the remove control of specific
+	 * options.
+	 *
+	 * @param color the visible text of the option (e.g. "Red")
+	 * @return By locator targeting the remove button of the specific multi-select
+	 *         option
+	 */
+	public By getRemoveMultiSelectOptionalLocator(String color) {
+		return By.xpath("//div[contains(@class,'css-v7duua') and contains(@aria-label,'Remove " + color + "')]");
+	}
+
+	/**
+	 * Clicks the remove button of a multi-select option to deselect it. Waits for
+	 * the remove control to be clickable before interacting.
+	 *
+	 * @param color the visible text of the option to remove (e.g. "Red")
+	 */
+	public void removeMultiSlectOptionByColor(String color) {
+		wait.until(ExpectedConditions.elementToBeClickable(getRemoveMultiSelectOptionalLocator(color))).click();
 	}
 
 }
