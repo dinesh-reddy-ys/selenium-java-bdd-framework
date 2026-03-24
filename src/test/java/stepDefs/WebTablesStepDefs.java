@@ -146,10 +146,12 @@ public class WebTablesStepDefs {
 		String lastName = employeeData.get("lastName");
 
 		// Delegate to the page object which inspects the table DOM
-		boolean isPresent = webTablesPage.isEmployeePresentInTable(firstName, lastName);
+		//boolean isPresent = webTablesPage.isEmployeePresentInTable(firstName, lastName);
 
 		// Assert presence and provide a helpful failure message if missing
-		Assert.assertTrue(isPresent, "Employee not found in table: " + firstName + " " + lastName);
+		//Assert.assertTrue(isPresent, "Employee not found in table: " + firstName + " " + lastName);
+		Assert.assertTrue(webTablesPage.isValuePresentInThetable(firstName), "Employee not found in table: " + firstName);
+		Assert.assertTrue(webTablesPage.isValuePresentInThetable(lastName), "Employee not found in table: " + lastName);
 	}
 
 }

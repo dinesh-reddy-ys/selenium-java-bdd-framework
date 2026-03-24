@@ -40,15 +40,15 @@ public class WebTablesPage implements IWebTablesPages {
 	private WebElement searchBox;
 
 	// Each row in the React table is represented by this locator
-	@FindBy(css = "div.rt-tr-group")
+	@FindBy(xpath = "//table[contains(@class,'table')]//tbody//tr")
 	private List<WebElement> rowLocator;
 
 	// A generic locator for any table cell (used when needed)
-	@FindBy(css = "div.rt-td")
+	@FindBy(xpath = "//table[contains(@class,'table')]//tbody//tr//td")
 	private List<WebElement> columnLocator;
 
 	// Table column locator as reusable By object (not hardcoded in method!)
-	private final By columnBy = By.cssSelector("div.rt-td");
+	private final By tableCells = By.xpath("//table[contains(@class,'table')]//tbody//td");
 
 	/**
 	 * Construct the page object and initialize WebElements via PageFactory.
@@ -94,7 +94,7 @@ public class WebTablesPage implements IWebTablesPages {
 			// Columns inside each row — find using reusable By locator to scope
 			// the search to the current row (avoids using the page-level
 			// columnLocator which returns every column on the page).
-			List<WebElement> columns = row.findElements(columnBy);
+			List<WebElement> columns = row.findElements(tableCells);
 			List<String> rowData = new ArrayList<>();
 
 			for (WebElement column : columns) {
@@ -131,6 +131,17 @@ public class WebTablesPage implements IWebTablesPages {
 		}
 		return false; // No match
 
+	}
+	
+	public boolean isValuePresentInThetable(String value) {
+		List<WebElement> cells = driver.findElements(tableCells);
+		for(WebElement cell : cells) {
+			if(cell.getText().trim().equalsIgnoreCase(value)) {
+				return true;
+			}
+		}
+		return false;
+		
 	}
 
 }

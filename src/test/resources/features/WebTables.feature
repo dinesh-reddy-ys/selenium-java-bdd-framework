@@ -28,8 +28,8 @@ Feature: Web Tables
   Scenario: Add a new employee successfully
     When the user clicks on the add button
     And the user enters valid employee details
-    | firstName | lastName | age | email            | salary | department |
-    | John      | Doe      | 30  | john.deo@test.com| 50000  | QA         |
+    | firstName | lastName | age | email              | salary | department |
+    | John      | Doe      | 30  | john.deo@test.com  | 50000  | QA         |
     And user submits the form
     Then the new employee record should be displayed in the table
     | firstName | lastName |
