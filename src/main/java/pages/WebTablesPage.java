@@ -143,5 +143,13 @@ public class WebTablesPage implements IWebTablesPages {
 		return false;
 		
 	}
+	
+	public void clickEditButtonForEmployee(String firstName) {
+		WebElement editButton = driver.findElement(
+     By.xpath("//td[text()='" + firstName + "']/parent::tr//span[contains(@id,'edit-record')]"));
+		editButton.click();
+		
+	}
+	
 
 }

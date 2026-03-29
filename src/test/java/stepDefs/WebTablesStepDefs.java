@@ -153,5 +153,26 @@ public class WebTablesStepDefs {
 		Assert.assertTrue(webTablesPage.isValuePresentInThetable(firstName), "Employee not found in table: " + firstName);
 		Assert.assertTrue(webTablesPage.isValuePresentInThetable(lastName), "Employee not found in table: " + lastName);
 	}
+	
+	@When("the user clicks on the edit button for employee {string}")
+	public void the_user_clicks_on_the_edit_button_for_employee(String employeeName) {
+		webTablesPage.clickEditButtonForEmployee(employeeName);
+	}
+	
+	@And("the user updates the employee details with")
+	public void the_user_updates_the_employee_details_with(DataTable dataTable) {
+		Map<String,String> updatedData = dataTable.asMaps(String.class, String.class).get(0);
+		registrationFormPage.enterAge(updatedData.get("age"));
+		registrationFormPage.enterSalary(updatedData.get("salary"));
+	}
+	
+	@Then("the updated employee record should be displayed in the table")
+	public void the_updated_employee_record_should_be_displayed_in_the_table(DataTable dataTable) {
+		Map<String,String> updatedData = dataTable.asMaps(String.class, String.class).get(0);
+		Assert.assertTrue(webTablesPage.isValuePresentInThetable(updatedData.get("firstName")));
+		Assert.assertTrue(webTablesPage.isValuePresentInThetable(updatedData.get("lastName")));
+		Assert.assertTrue(webTablesPage.isValuePresentInThetable(updatedData.get("age")));
+		Assert.assertTrue(webTablesPage.isValuePresentInThetable(updatedData.get("salary")));
+	}
 
 }

@@ -98,6 +98,7 @@ public class RegistrationFormPage implements IRegistrationFormPage {
 	 */
 	public void enterAge(String age) {
 		wait.until(ExpectedConditions.visibilityOf(ageInput));
+		ageInput.clear(); // Clear any existing value before typing
 		ageInput.sendKeys(age);
 	}
 
@@ -108,6 +109,7 @@ public class RegistrationFormPage implements IRegistrationFormPage {
 	 */
 	public void enterSalary(String salary) {
 		wait.until(ExpectedConditions.visibilityOf(salaryInput));
+		salaryInput.clear(); // Clear any existing value before typing
 		salaryInput.sendKeys(salary);
 	}
 
