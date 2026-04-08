@@ -17,9 +17,14 @@ Feature: Selectable
     And I select below values
     |One |
     |Two |
+    |Three |
+    |Four |
     Then I should see the selected values in the list
     |One |
     |Two |
+    |Three |
+    |Four |
+    
     
     
     
